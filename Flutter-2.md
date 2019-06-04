@@ -26,7 +26,7 @@ Tabbar 页面是常有需求，而在Flutter中： **Scaffold + AppBar + Tabbar 
 
 下面我们直接代码走起，首先作为一个Tabbar Widget，它肯定是一个 `StatefulWidget` ，所以我们先实现它的 `State ` ：
 
-```
+```dart
  class _GSYTabBarState extends State<GSYTabBarWidget> with SingleTickerProviderStateMixin {
   	///···省略非关键代码
     @override
@@ -96,7 +96,7 @@ Tabbar 页面是常有需求，而在Flutter中： **Scaffold + AppBar + Tabbar 
 
 外部调用代码如下：每个 Tabbar 点击时，通过`pageController.jumpTo` 跳转页面，每个页面需要跳转坐标为：**当前屏幕大小乘以索引 index** 。
 
-```
+```dart
 class _TabBarBottomPageWidgetState extends State<TabBarBottomPageWidget> {
 
   final PageController pageController = new PageController();
@@ -161,7 +161,7 @@ class _TabBarBottomPageWidgetState extends State<TabBarBottomPageWidget> {
 
 同时我们在顶部 TabBar 增加 `isScrollable: true` 属性，实现常见的顶部Tab的效果，如下方图片所示。
 
-```
+```dart
     return new Scaffold(
         ///设置侧边滑出 drawer，不需要可以不设置
         drawer: _drawer,
@@ -212,7 +212,7 @@ class _TabBarBottomPageWidgetState extends State<TabBarBottomPageWidget> {
 
  如下代码所示，通过  ` _getListCount() ` 方法，还可以配置空页面，头部等常用效果。其实就是**在内部通过改变实际item数量与渲染Item，以实现更多配置效果**。
 
-```
+```dart
 class _GSYPullLoadWidgetState extends State<GSYPullLoadWidget> {
   ///···
   final ScrollController _scrollController = new ScrollController();
@@ -312,7 +312,7 @@ class _GSYPullLoadWidgetState extends State<GSYPullLoadWidget> {
 
 继续上一小节中的 `_buildProgressIndicator `方法实现，通过 flutter_spinkit 可以快速实现更不一样的 Loading 样式。
 
-```
+```dart
  ///上拉加载更多
   Widget _buildProgressIndicator() {
     ///是否需要显示上拉加载更多的loading
@@ -352,7 +352,7 @@ class _GSYPullLoadWidgetState extends State<GSYPullLoadWidget> {
 
 Flutter 中默认内置的 `Icons` 类就提供了丰富的图标，直接通过 `Icons` 对象即可使用，同时个人推荐阿里爸爸的 **iconfont** 。如下代码，通过在 `pubspec.yaml` 中添加字体库支持，然后在代码中创建 `IconData` 指向字体库名称引用即可。
 
-```
+```dart
   fonts:
     - family: wxcIconFont
       fonts:
@@ -381,7 +381,7 @@ Flutter 中默认内置的 `Icons` 类就提供了丰富的图标，直接通过
 
 Flutter 中的页面跳转是通过 `Navigator`  实现的，路由跳转又分为：**带参数跳转和不带参数跳转**。不带参数跳转比较简单，默认可以通过 MaterialApp 的路由表跳转；而带参数的跳转，参数通过跳转页面的构造方法传递。常用的跳转有如下几种使用：
 
-```
+```dart
 ///不带参数的路由表跳转
 Navigator.pushNamed(context, routeName);
 
@@ -418,7 +418,7 @@ static Future<T> push<T extends Object>(BuildContext context, Route<T> route) {
 
 当前 Flutter 网络请求封装中，国内最受欢迎的就是 [Dio](https://github.com/flutterchina/dio) 了，Dio 封装了网络请求中的**数据转换、拦截器、请求返回**等。如下代码所示，通过对 Dio 的简单封装即可快速网络请求，真的很简单，更多的可以查 Dio 的官方文档，这里就不展开了。(真的不是懒(˶‾᷄ ⁻̫ ‾᷅˵))
 
-```
+```dart
     ///创建网络请求对象
     Dio dio = new Dio();
     Response response;
@@ -438,7 +438,7 @@ static Future<T> push<T extends Object>(BuildContext context, Route<T> route) {
 
 所以 `json_serializable` 插件诞生了，  [中文网Json](https://flutterchina.club/json/) 对其已有一段教程，这里主要补充说明下具体的使用逻辑。
 
-```
+```dart
 dependencies:
   # Your other regular dependencies here
   json_annotation: ^0.2.2
@@ -457,7 +457,7 @@ dev_dependencies:
 
 * 最后通过 `flutter packages pub run build_runner build` 编译自动生成转化对象。（个人习惯完成后手动编译）
 
-```
+```dart
 import 'package:json_annotation/json_annotation.dart';
 
 ///关联文件、允许Template访问 Template.g.dart 中的私有方法
@@ -494,7 +494,7 @@ class Template extends Object with _$TemplateSerializerMixin {
 
 上述操作生成后的 `Template.g.dart` 下的代码如下，这样我们就可以通过 `Template.fromJson` 和` toJson` 方法对实体与map进行转化，再结合`json.decode` 和 `json.encode`，你就可以愉悦的在**string 、map、实体间相互转化了**。
 
-```
+```dart
 
 part of 'Template.dart';
 
@@ -529,7 +529,7 @@ abstract class _$TemplateSerializerMixin {
 
 &emsp; 所以如下代码，我们先创建一个 State 用于存储需要保存的对象，其中关键代码在于 ` UserReducer `。
 
-```
+```dart
 ///全局Redux store 的对象，保存State数据
 class GSYState {
   ///用户信息
@@ -550,7 +550,7 @@ GSYState appReducer(GSYState state, action) {
 
 下面是上方使用的  `UserReducer` 的实现。这里主要通过 `TypedReducer` 将 reducer 的处理逻辑与定义的 Action 绑定，最后通过 `combineReducers`  返回 `Reducer<State>`  对象应用于上方 Store 中。
 
-```
+```dart
 /// redux 的 combineReducers, 通过 TypedReducer 将 UpdateUserAction 与 reducers 关联起来
 final UserReducer = combineReducers<User>([
   TypedReducer<User, UpdateUserAction>(_updateLoaded),
@@ -575,7 +575,7 @@ class UpdateUserAction {
 
 下面正式在 Flutter 中引入 store，通过 `StoreProvider` 将创建 的 store 引用到 Flutter 中。
 
-```
+```dart
 void main() {
   runApp(new FlutterReduxApp());
 }
@@ -603,7 +603,7 @@ class FlutterReduxApp extends StatelessWidget {
 
 在下方 DemoUseStorePage 中，通过 `StoreConnector` 将State 绑定到 Widget；通过 `StoreProvider.of ` 可以获取 state 对象；通过 ` dispatch ` 一个 Action 可以更新State。
 
-```
+```dart
 class DemoUseStorePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -678,7 +678,7 @@ Flutter 中 ，通过`WillPopScope` 嵌套，可以用于监听处理 Android �
 
 通过`onWillPop `回调返回的`Future`，判断是否响应 pop 。下方代码实现按下返回键时，弹出提示框，按下确定退出App。
 
-```
+```dart
 class HomePage extends StatelessWidget {
   /// 单击提示退出
   Future<bool> _dialogExitApp(BuildContext context) {
@@ -717,7 +717,7 @@ class HomePage extends StatelessWidget {
 
 `WidgetsBindingObserver` 包含了各种控件的生命周期通知，其中的 `didChangeAppLifecycleState` 就可以用于做前后台状态监听。
 
-```
+```dart
 /// WidgetsBindingObserver 包含了各种控件的生命周期通知
 class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
 

@@ -69,7 +69,7 @@ Come on，下面主要通过对比，简单讲述下 Dart 的一些特性，主�
 
 - Dart 中多构造函数，可以通过如下代码实现的。默认构造方法只能有一个，而通过`Model.empty()` 方法可以创建一个空参数的类，其实方法名称随你喜欢。而变量初始化值时，只需要通过 `this.name` 在构造方法中指定即可：
 
-```
+```dart
 class ModelA {
   String name;
   String tag;
@@ -90,7 +90,7 @@ class ModelA {
 
 Flutter 中支持 `async`/`await` 。这一点和 ES7 很像，**如下代码所示**，只是定义的位置不同。同时异步操作也和 ES6 中的`Promise ` 很像，只是 Flutter 中返回的是 `Future` 对象，通过 `then` 可以执行下一步。如果返回的还是 `Future` 便可以 `then().then.()` 的流式操作了 。
 
-```
+```dart
   ///模拟等待两秒，返回OK
   request() async {
     await Future.delayed(Duration(seconds: 1));
@@ -146,7 +146,7 @@ Widget 分为 *有状态* 和 *无状态* 两种，在 Flutter 中每个页面�
 
 Widget 和 Widget 之间通过 `  child:  ` 进行嵌套。其中有的 Widget 只能有一个 child，比如下方的 `Container` ；有的 Widget 可以多个 child ，也就是`children:`，比如` Column 布局。下方代码便是 Container Widget 嵌套了 Text Widget。
 
-```
+```dart
 import 'package:flutter/material.dart';
 
 class DEMOWidget extends StatelessWidget {
@@ -186,7 +186,7 @@ class DEMOWidget extends StatelessWidget {
 
 看到没，Flutter 其实就是这么简单！你的关注点只要在：创建你的 `StatelessWidget` 或者 `StatefulWidget` 而已。**你需要的就是在 `build ` 中堆积你的布局，然后把数据添加到 Widget 中，最后通过 `setState` 改变数据，从而实现画面变化。**
 
-```
+```dart
 import 'dart:async';
 import 'package:flutter/material.dart';
 
@@ -259,7 +259,7 @@ Flutter 中拥有需要将近30种内置的 [布局Widget](https://flutterchina.
 | ListView  | 可以有多个子 Widget。自己意会吧。                                    |
 
 * Container ：最常用的默认布局！只能包含一个`child:`，支持配置 *padding,margin,color,宽高,decoration（一般配置边框和阴影）等配置*，在 Flutter 中，不是所有的控件都有 *宽高、padding、margin、color* 等属性，所以才会有 Padding、Center 等 Widget 的存在。
-```
+```dart
     new Container(
         ///四周10大小的maring
         margin: EdgeInsets.all(10.0),
@@ -308,7 +308,7 @@ crossAxisAlignment :CrossAxisAlignment.center,
 
 如代码中注释，布局内主要是现实一个居中的Icon图标和文本，中间间隔5.0的 padding：
 
-```
+```dart
   ///返回一个居中带图标和文本的Item
   _getBottomItem(IconData icon, String text) {
     ///充满 Row 横向的布局
@@ -361,7 +361,7 @@ crossAxisAlignment :CrossAxisAlignment.center,
 * 接着通过`Column`垂直包含了两个子Widget，一个是`Container`、一个是`Row`。
 * Row 内使用的就是`_getBottomItem `方法返回的 Widget ，效果如下图。
 
-```
+```dart
   @override
   Widget build(BuildContext context) {
     return new Container(
@@ -438,7 +438,7 @@ Flutter 中除了布局的 Widget，还有交互显示的 Widget 和完整页面
 * AppBar类似标题了区域，其中设置了 `title `为 Text Widget。
 * body是`ListView`,返回了20个之前我们创建过的 DemoItem Widget。
 
-```
+```dart
 import 'package:flutter/material.dart';
 import 'package:gsy_github_app_flutter/test/DemoItem.dart';
 
@@ -475,7 +475,7 @@ class _DemoPageState extends State<DemoPage> {
 
 最后我们创建一个StatelessWidget作为入口文件，实现一个`MaterialApp `将上方的`DemoPage`设置为home页面，通过`main`入口执行页面。
 
-```
+```dart
 import 'package:flutter/material.dart';
 import 'package:gsy_github_app_flutter/test/DemoPage.dart';
 
