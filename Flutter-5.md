@@ -18,7 +18,7 @@
 
 Mixin 的定义解释起来会比较绕，我们直接代码从中出吧。如下代码所示，在 Dart 中 `with` 就是用于 mixins。可以看出，`class G extends B with A, A2` ，在执行 G 的 a、b、c 方法后，输出了 `A2.a()、A.b() 、B.c()` 。所以结论上简单来说，就是**相同方法被覆盖了，并且 with 后面的会覆盖前面的**。 
 
-```
+```dart
 class A {
   a() {
     print("A.a()");
@@ -73,7 +73,7 @@ testMixins() {
 从最后的输入我们可以看出，`A、A2、B `中的**所有方法都被执行了，且只执行了一次，同时执行的顺序也是和 with 的顺序有关**。如果你把下方代码中 class A.a() 方法的 super 去掉，那么你将看不到 `B.a()` 和 `base a()` 的输出。
 
 
-```
+```dart
 
 abstract class Base {
   a() {
@@ -193,7 +193,7 @@ testMixins() {
 
 是否**将需要共享的 State，都放在一个 InheritedWidget 中，然后在使用的 widget 中直接取用**就可以呢？答案是肯定的！所以如下方这类代码：通常如 *焦点、主题色、多语言、用户信息* 等都属于 App 内的全局共享数据，他们都会通过 BuildContext（InheritedElement） 获取。
 
-```
+```dart
 ///收起键盘
 FocusScope.of(context).requestFocus(new FocusNode());
 
@@ -219,7 +219,7 @@ ScopedModel.of<UserInfo>(context).userInfo
 如下方代码所示，通过给 `MaterialApp` 设置主题数据，通过 `Theme.of(context)` 就可以获取到主题数据并绑定使用。当 `MaterialApp` 的主题数据变化时，对应的 Widget 颜色也会发生变化，这是为什么呢(ｷ｀ﾟДﾟ´)!!？
 
 
-```
+```dart
   ///添加主题
   new MaterialApp(
       theme: ThemeData.dark()
@@ -276,7 +276,7 @@ bool updateShouldNotify(_InheritedTheme old) => theme.data != old.theme.data;
 
 在  `PaintingBinding` 内有一个 `ImageCache` 对象，该对象全局一个单例的，同时再图片加载时的 `ImageProvider` 所使用，所以设置图片缓存大小如下：
 
-```
+```dart
 //缓存个数 100
 PaintingBinding.instance.imageCache.maximumSize=100;
 //缓存大小 50m

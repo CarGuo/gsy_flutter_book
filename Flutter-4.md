@@ -55,7 +55,7 @@ Redux 的概念是**状态管理**，那在已有 `state` 的基础上，为什�
 
 接着我们需要定义 Reducer 方法 `appReducer `  ：将 `GSYState ` 内的每一个参数，和对应的   `action` 绑定起来，返回完整的 `GSYState` 。**这样我们就确定了 State 和 Reducer 用于创建 Store**。
 
-```
+```dart
 ///全局Redux store 的对象，保存State数据
 class GSYState {
   ///用户信息
@@ -93,7 +93,7 @@ GSYState appReducer(GSYState state, action) {
 
 继续上面流程，如下代码所示，通过 *flutter_redux* 的 `combineReducers` 与 `TypedReducer `，将 `RefreshThemeDataAction` 类  和  `_refresh` 方法绑定起来，最终会返回一个 `ThemeData `  实例。也就是说：**用户每次发出一个 RefreshThemeDataAction ，最终都会触发 _refresh 方法，然后更新 GSYState 中的 themeData**。
 
-```
+```dart
 import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
 
@@ -122,7 +122,7 @@ class RefreshThemeDataAction {
 
 OK，现在我们可以愉悦的创建 **Store** 了。如下代码所示，在创建 Store 的同时，我们通过 `initialState` 对 GSYState 进行了初始化，然后通过 `StoreProvider ` 加载了 Store 并且包裹了 `MaterialApp ` 。 **至此我们完成了 Redux 中的初始化构建。**
 
-```
+```dart
 void main() {
   runApp(new FlutterReduxApp());
 }
@@ -155,7 +155,7 @@ class FlutterReduxApp extends StatelessWidget {
 
 And then，接下来就是使用了。如下代码所示，通过在 `build` 中使用 `StoreConnector ` ，通过 `converter ` 转化 **store.state** 的数据，最后通过 `builder ` 返回实际需要渲染的控件，这样就完成了**数据和控件的绑定**。当然，你也可以使用`StoreBuilder` 。
 
-```
+```dart
 class DemoUseStorePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -178,7 +178,7 @@ class DemoUseStorePage extends StatelessWidget {
 最后，当你需要触发更新的时候，只需要如下代码即可。
 
 
-```
+```dart
  StoreProvider.of(context).dispatch(new UpdateUserAction(newUserInfo));
 ```
 
@@ -195,7 +195,7 @@ Flutter 中官方默认就支持主题设置，`MaterialApp ` 提供了 `theme` 
 
 ![image.png](http://img.cdn.guoshuyu.cn/20190604_Flutter-4/image4)
 
-```
+```dart
 MaterialColor primarySwatch = const MaterialColor(
     primaryValue,
     const <int, Color>{
@@ -220,7 +220,7 @@ MaterialColor primarySwatch = const MaterialColor(
 注意，因为你的 **MaterialApp** 也是一个   `StatefulWidget` ，如下代码所示，还需要利用 `StoreBuilder` 包裹起来，之后我们就可以通过 `dispatch` 修改主题，通过 `Theme.of(context).primaryColor`  获取主题色啦。
 
 
-```
+```dart
  @override
   Widget build(BuildContext context) {
     /// 通过 StoreProvider 应用 store
@@ -259,7 +259,7 @@ Flutter的国际化按照官网文件 [internationalization](https://flutterchin
 
 如下代码所示，创建自定义 delegate 需要继承 `LocalizationsDelegate ` 对象，其中主要实现 `load ` 方法。我们可以是通过方法的 `locale` 参数，判断需要加载的语言，然后返回我们自定义好多语言实现类 `GSYLocalizations ` ，最后通过静态 `delegate ` 对外提供 `LocalizationsDelegate `。
 
-```
+```dart
 /**
  * 多语言代理
  * Created by guoshuyu
@@ -297,7 +297,7 @@ class GSYLocalizationsDelegate extends LocalizationsDelegate<GSYLocalizations> {
 因为 **GSYLocalizations** 对象最后会通过`Localizations` 加载，所以 `Locale ` 也是在那时，通过 delegate 赋予。同时在该 context 下，可以通过`Localizations.of ` 获取 GSYLocalizations，比如: `GSYLocalizations.of(context).currentLocalized.app_name`。
 
 
-```
+```dart
 ///自定义多语言实现
 class GSYLocalizations {
   final Locale locale;
@@ -342,7 +342,7 @@ GSYLocalizations.of(context).currentLocalized.app_name
 
 如下代码，我们创建一个 `GSYLocalizations ` 的 Widget，通过 `StoreBuilder` 绑定 Store，然后通过 `Localizations.override` 包裹我们需要构建的页面，将 Store 中的 `locale` 和 Localizations 的 `locale` 绑定起来。
 
-```
+```dart
 class GSYLocalizations extends StatefulWidget {
   final Widget child;
 
@@ -373,7 +373,7 @@ class _GSYLocalizations extends State<GSYLocalizations> {
 
 如下代码，最后将 `GSYLocalizations ` 使用到 `MaterialApp ` 中。通过 `store.dispatch ` 切换  `Locale  ` 即可。
 
-```
+```dart
  @override
   Widget build(BuildContext context) {
     /// 通过 StoreProvider 应用 store

@@ -31,7 +31,7 @@ Flutter 中默认情况下，以 Android 为例，所有的事件都是起原生
 如下代码所示， `GestureBinding`  的 `_handlePointerEvent` 方法中主要是 `hitTest` 和 `dispatchEvent`： **通过  `hitTest` 碰撞，得到一个包含控件的待处理成员列表 `HitTestResult`，然后通过  `dispatchEvent` 分发事件并产生竞争，得到胜利者相应。**
 
 
-```
+```dart
   void _handlePointerEvent(PointerEvent event) {
     assert(!locked);
     HitTestResult hitTestResult;
@@ -75,7 +75,7 @@ Flutter 中默认情况下，以 Android 为例，所有的事件都是起原生
 
 在 `RendererBinding.hitTest` 中会执行 `renderView.hitTest(result, position: position);` ，如下代码所示，`renderView.hitTest` 方法内会执行 `child.hitTest` ，它将尝试将符合条件的 child 控件添加到 `HitTestResult` 里，最后把自己添加进去。
 
-```
+```dart
 ///RendererBinding
 
 bool hitTest(HitTestResult result, { Offset position }) {
@@ -88,7 +88,7 @@ bool hitTest(HitTestResult result, { Offset position }) {
 
 而查看 `child.hitTest` 方法源码，如下所示，`RenderObjcet` 中的`hitTest` ，会通过 `_size.contains` 判断自己是否属于响应区域，确认响应后执行 `hitTestChildren` 和 `hitTestSelf` ，尝试添加下级的 child 和自己添加进去，这样的**递归就让我们自下而上的得到了一个 `HitTestResult` 的相应控件列表了，最底下的 Child 在最上面**。
 
-```
+```dart
   ///RenderObjcet
   
   bool hitTest(HitTestResult result, { @required Offset position }) {
@@ -110,7 +110,7 @@ bool hitTest(HitTestResult result, { Offset position }) {
 
 `dispatchEvent` 中主要是对事件进行分发，并且通过上述添加进去的 `target.handleEvent` 处理事件，如下代码所示，在存在碰撞结果的时候，是会通过循环对每个控件内部的`handleEvent` 进行执行。
 
-```
+```dart
   @override // from HitTestDispatcher
   void dispatchEvent(PointerEvent event, HitTestResult hitTestResult) {
   	 ///如果没有碰撞结果，那么通过 `pointerRouter.route` 将事件分发到全局处理。
@@ -172,7 +172,7 @@ Flutter 在设计事件竞争的时候，定义了一个很有趣的概念：**�
 
 如下代码所示，走到 `GestureBinding`  的 `handleEvent` ，在 Down 事件的流程中，一般 `pointerRouter.route` 不会怎么处理逻辑，然后就是 `gestureArena.close` 关闭竞技场了，尝试得到胜利者。
 
-```
+```dart
   @override // from HitTestTarget
   void handleEvent(PointerEvent event, HitTestEntry entry) {
   	 /// 导航事件去触发  `GestureRecognizer` 的 handleEvent

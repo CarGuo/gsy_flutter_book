@@ -99,7 +99,7 @@ drop Pods/Pods.xcodeproj into Runner/Pods.
 
 Flutter 中的按键，如 `FlatButton` 默认是否有边距和最小大小的。所以如果你想要无 *padding、margin、border 、默认大小* 等的按键效果，其中一种方式如下：
 
-```
+```dart
 ///
 new RawMaterialButton(
         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
@@ -111,7 +111,7 @@ new RawMaterialButton(
 
 如果在再上 Flex ，如下所示，一个可控的填充按键就出来了。
 
-```
+```dart
 new RawMaterialButton(
         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
         padding: padding ?? const EdgeInsets.all(0.0),
@@ -163,7 +163,7 @@ new RawMaterialButton(
 
 在Flutter中，要主动改变子控件的状态，还可以使用 `GlobalKey `。 比如你需要主动调用 `RefreshIndicator` 显示刷新状态，如下代码所示。
 
-```
+```dart
 
  GlobalKey<RefreshIndicatorState> refreshIndicatorKey;
   
@@ -191,7 +191,7 @@ new RawMaterialButton(
 
 如下代码，通过 `StoreProvider ` 加载了  store ，再通过 `StoreBuilder ` 将 store 中的 themeData 绑定到 `MaterialApp`  的  theme 下，之后在其他 Widget 中通过 `Theme.of(context)` 调你需要的颜色，最终在任意位置调用 `store.dispatch` 就可实时修改主题，效果如后图所示。
 
-```
+```dart
 class FlutterReduxApp extends StatelessWidget {
   final store = new Store<GSYState>(
     appReducer,

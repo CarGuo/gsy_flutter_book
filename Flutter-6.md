@@ -41,7 +41,7 @@ RenderBox 避免了直接使用  `RenderObject` 的麻烦场景，其中 `Render
 
 首先这里需要用到我们前文中提过的 `GlobalKey ` ，通过 key 去获取到控件对象的 `BuildContext `，而我们也知道 `BuildContext` 的实现其实是 `Element`，而`Element`持有 `RenderObject ` 。So，我们知道的 `RenderObject` ，实际上获取到的就是 `RenderBox` ，那么通过 `RenderBox` 我们就只大小和位置了。
 
-```
+```dart
   showSizes() {
     RenderBox renderBoxRed = fileListKey.currentContext.findRenderObject();
     print(renderBoxRed.size);

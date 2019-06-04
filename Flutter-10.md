@@ -99,7 +99,7 @@ Flutter 的图片加载流程其实“并不复杂”，具体可点击下方大
 
 结合 `flutter_cache_manager` 插件，如下方代码所示，就可以快速简单实现图片的本地缓存：
 
-```
+```dart
  Future<ui.Codec> _loadAsync(NetworkImage key) async {
     assert(key == this);
 
@@ -144,7 +144,7 @@ Flutter 的图片加载流程其实“并不复杂”，具体可点击下方大
 上面的流程我们知道， `ImageCache` 缓存的是一个异步对象，缓存异步加载对象的一个问题是，在图片加载解码完成之前，你无法知道到底将要消耗多少内存，并且大量的图片加载，会导致的解码任务需要产生大量的IO。
 
 而在 Flutter 中， `ImageCache` 默认的缓存大小是
-```
+```dart
 const int _kDefaultSize = 1000;
 const int _kDefaultSizeBytes = 100 << 20; // 100 
 ```

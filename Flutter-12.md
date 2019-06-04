@@ -38,7 +38,7 @@
 是不是很简单？那仅仅一个 dart 文件，如何实现这样的效果的呢？后面我们马上开始剥析它。
 
 
-```
+```dart
 class ScopedPage extends StatelessWidget {
   final CountModel _model = new CountModel();
 
@@ -135,7 +135,7 @@ class CountModel extends Model {
 当然，如果和 `rxdart` 结合可以简化 `StreamController` 的一些操作，同时如果你需要利用 `BloC ` 模式实现状态共享，那么自己也可以封装多一层  `InheritedWidgets` 的嵌套，如果对于这一块有疑惑的话，推荐可以去看看上一篇的 Stream 解析。
 
 
-```
+```dart
 class _BlocPageState extends State<BlocPage> {
   final PageBloc _pageBloc = new PageBloc();
   @override
@@ -212,7 +212,7 @@ class PageBloc {
 
 之后我们可以 `dispatch` 一个 **Action** ，在经过 `middleware` 之后，触发对应的 **Reducer** 返回数据，而事实上这里核心的内容实现，**还是 `Stream` 和 `StreamBuilder` 的结合使用** ，接下来就让我们看看这个流程是如何联动起来的吧。
 
-```
+```dart
 class _ReduxPageState extends State<ReduxPage> {
 
   ///初始化store
@@ -291,7 +291,7 @@ class _ReduxPageState extends State<ReduxPage> {
 但是这带来的好处就是 **复用的颗粒度更细了，装配和功能更加的清晰。** 那这个过程是如何实现的呢？后面我们将分析这个复杂的流程。
 
 
-```
+```dart
 class FishPage extends Page<CountState, Map<String, dynamic>> {
   FishPage()
       : super(

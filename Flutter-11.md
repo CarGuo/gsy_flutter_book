@@ -30,7 +30,7 @@
 - 获取 `Stream` 对象用于监听，
 - 并且通过监听得到 `StreamSubscription` 管理事件订阅，最后在不需要时关闭即可，看起来是不是很简单？
 
-```
+```dart
 class DataBloc {
   ///定义一个Controller
   StreamController<List<String>> _dataController = StreamController<List<String>>();
@@ -63,14 +63,14 @@ class DataBloc {
 
 如下代码所示，是不是一股 `rx` 风扑面而来？
 
-```
+```dart
 _dataStream.where(test).map(convert).transform(streamTransformer).listen(onData);
 ```
 
 而在 Flutter 中， 最后结合 `StreamBuilder` , 就可以完成 **基于事件流的异步状态控件** 了！
 
 
-```
+```dart
 StreamBuilder<List<String>>(
     stream: dataStream,
     initialData: ["none"],
@@ -146,7 +146,7 @@ Flutter中 `Stream` 、`StreamController ` 、`StreamSink` 和 `StreamSubscripti
 
 那么项目中默认的 `Zone` 是怎么来的？在 Flutter 中，**Dart 中的 `Zone` 启动是在 `_runMainZoned` 方法** ，如下代码所示 `_runMainZoned` 的 `@pragma("vm:entry-point")` 注解表示该方式是给 Engine 调用的，到这里我们知道了 `Zone` 是怎么来的了。
 
-```
+```dart
 ///Dart 中
 
 @pragma('vm:entry-point')
@@ -156,7 +156,8 @@ void _runMainZoned(Function startMainIsolateFunction, Function userMainFunction)
     runZoned<Future<void>>(····);
   }, null);
 }
-
+```
+```c++
 ///C++ 中
 if (tonic::LogIfError(tonic::DartInvokeField(
           Dart_LookupLibrary(tonic::ToDart("dart:ui")), "_runMainZoned",
@@ -228,7 +229,7 @@ if (tonic::LogIfError(tonic::DartInvokeField(
 
 如下代码所示, 在 Flutter 中通过 `StreamBuilder` 构建 Widget ，只需提供一个 `Stream ` 实例即可，其中 `AsyncSnapshot` 对象为数据快照，通过 `data` 缓存了当前数据和状态，那 `StreamBuilder` 是如何与 `Stream` 关联起来的呢？
 
-```
+```dart
 StreamBuilder<List<String>>(
     stream: dataStream,
     initialData: ["none"],
@@ -259,7 +260,7 @@ StreamBuilder<List<String>>(
 如下代码所示是 `rxdart` 的简单使用，可以看出它屏蔽了外界需要对 `StreamSubscription` 和 `StreamSink` 等的认知，更符合 `rx ` 历史用户的理解。
 
 
-```
+```dart
 final subject = PublishSubject<String>();
 
 subject.stream.listen(observerA);
@@ -281,7 +282,7 @@ subject.close();
 
 - `rxdart` 在做变换时，我们获取到的 `Observable` 就是 this，也就是 `PublishSubject` 自身这个 `Stream` ，而 `Observable` 一系列的变换，也是基于创建时传入的 `stream` 对象，比如：
 
-```
+```dart
   @override
   Observable<S> asyncMap<S>(FutureOr<S> convert(T value)) =>
       Observable<S>(_stream.asyncMap(convert));

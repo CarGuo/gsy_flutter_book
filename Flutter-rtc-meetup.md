@@ -118,7 +118,7 @@ Dart 为了让类可以像函数一样调用，默认都可以实现 `call()` �
 比如我定义了一个 `CallObject` 
 
 
-```
+```dart
 class CallObject {
 
   List<Widget> footerButton = [];
@@ -131,7 +131,7 @@ class CallObject {
 就可以通过以下执行
 
 
-```
+```dart
 CallObject callObject = CallObject();
 print(callObject(11, 11.0));
 print(callObject?.call(11, 11.0));
@@ -139,7 +139,7 @@ print(callObject?.call(11, 11.0));
 
 然后我定义了 
 
-```
+```dart
 typedef void ValueFunction(int i);
 
   ValueFunction vt = (int i){
@@ -151,7 +151,7 @@ typedef void ValueFunction(int i);
 就可以通过直接执行和判空执行处理
 
 
-```
+```dart
  vt(666);
  vt?.call(777);
 

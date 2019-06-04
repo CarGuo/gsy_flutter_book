@@ -23,7 +23,7 @@
 #### 2、获取控件的大小和位置
 
 看过第六篇的同学应该知道， 我们可以用 `GlobalKey` ，通过 *key* 去获取到控件对象的 `BuildContext`，而前面我们也说过 `BuildContext` 的实现其实是 `Element` ，而 `Element` 持有 `RenderObject` 。So，我们知道的 `RenderObject ` ，实际上获取到的就是 `RenderBox` ，那么通过 RenderBox 我们就只大小和位置了：
-```
+```dart
   showSizes() {
     RenderBox renderBoxRed = fileListKey.currentContext.findRenderObject();
     print(renderBoxRed.size);
@@ -64,7 +64,7 @@
 
 在 Flutter 中字体缩放也是和 `MediaQueryData` 的 `textScaleFactor` 有关。所以我们可以在需要的页面，通过最外层嵌套如下代码设置，将字体设置为默认不允许缩放。
 
-```
+```dart
     MediaQuery(
       data: MediaQueryData.fromWindow(WidgetsBinding.instance.window).copyWith(textScaleFactor: 1),
       child: new Container(),
@@ -75,7 +75,7 @@
 
 在使用 `Container` 的时候我们经常会使用到 *margin* 和 *padding* 参数，其实在上一篇我们已经说过， `Container` 其实只是对各种布局的封装，内部的 *margin* 和 *padding* 其实是通过 `Padding` 实现的，而  `Padding`  不支持负数，所以如果你需要用到负数的情况下，推荐使用 `Transform ` 。
 
-```
+```dart
   Transform(
       transform: Matrix4.translationValues(10, -10, 0),
       child: new Container(),
@@ -116,7 +116,7 @@ Flutter 中通过  `FutureBuilder` 或者 `StreamBuilder` 可以和简单的实�
 
 Flutter 官方已经为你提供了 [android_intent](https://github.com/flutter/plugins/blob/master/packages/android_intent) 插件了，这种情况下，实现回到桌面可以如下简单实现：
 
-```
+```dart
   Future<bool> _dialogExitApp(BuildContext context) async {
     if (Platform.isAndroid) {
       AndroidIntent intent = AndroidIntent(

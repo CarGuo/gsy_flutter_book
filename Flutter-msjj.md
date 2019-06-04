@@ -61,7 +61,7 @@ AA ~/999 ///AA 对于 999 整除
 
 默认构造方法只能有一个，而通过 `Model.empty()` 方法可以创建一个空参数的类，其实方法名称随你喜欢，而变量初始化值时，只需要通过 `this.name` 在构造方法中指定即可：
 
-```
+```dart
 class ModelA {
   String name;
   String tag;
@@ -81,7 +81,7 @@ class ModelA {
 
 `Dart` 中所有的基础类型、类等都继承 `Object` ，默认值是 `NULL`， 自带 `getter` 和 `setter` ，而如果是 `final` 或者 `const` 的话，那么它只有一个 `getter` 方法，`Object`  都支持 getter、setter 重写：
 
-```
+```dart
   @override
   Size get preferredSize {
     return Size.fromHeight(kTabHeight + indicatorWeight);
@@ -95,7 +95,7 @@ class ModelA {
 - 14、重写运算符，如下所示重载 `operator` 后对类进行 +/- 操作。
 
 
-```
+```dart
 class Vector {
   final int x, y;
 
@@ -132,7 +132,7 @@ void main() {
 
 `Dart` 中可通过 `Zone` 表示指定代码执行的环境，类似一个沙盒概念，在 `Flutter` 中 **C++** 运行 `Dart` 也是在 `_runMainZoned` 内执行 `runZoned` 方法启动，而我们也可以通过 `Zone` ，在运行环境内捕获全局异常等信息:
 
-```
+```dart
   runZoned(() {
     runApp(FlutterReduxApp());
   }, onError: (Object obj, StackTrace stack) {
@@ -174,7 +174,7 @@ Zone.current.scheduleMicrotask((){
 
 比如 `Future.microtask` 中主要是执行了 `Zone` 的 `scheduleMicrotask` ，而 `result._complete` 最后调用的是 `_zone.runUnary` 等等。
 
-```
+```dart
   factory Future.microtask(FutureOr<T> computation()) {
     _Future<T> result = new _Future<T>();
     scheduleMicrotask(() {
@@ -267,7 +267,7 @@ Flutter 和 React Native 不同主要在于 **Flutter UI是直接通过 skia 渲
 
 - Flutter 中默认主要通过 **`runtimeType` 和 `key`** 判断更新：
 
-```
+```dart
 static bool canUpdate(Widget oldWidget, Widget newWidget) {
     return oldWidget.runtimeType == newWidget.runtimeType
         && oldWidget.key == newWidget.key;
