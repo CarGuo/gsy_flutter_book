@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gsy_flutter_demo/widget/bubble/bubble_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/clip_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/controller_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/custom_pull/refrsh_demo_page3.dart';
@@ -81,6 +82,7 @@ const routerName = [
   "简单上下刷新2 例子",
   "简单上下刷新3 例子",
   "绝对定位 例子",
+  "弹出提示框 例子",
 ];
 
 Map<String, WidgetBuilder> routers = {
@@ -117,4 +119,8 @@ Map<String, WidgetBuilder> routers = {
   "widget/positioned": (context) {
     return new PositionedDemoPage();
   },
+  "widget/bubble": (context) {
+    return new BubbleDemoPage();
+  },
+
 };
