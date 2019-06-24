@@ -6,7 +6,7 @@ class PositionedDemoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: new Text("GuideWindowDemoPage"),
+        title: new Text("PositionedDemoPage"),
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
