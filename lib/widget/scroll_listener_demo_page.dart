@@ -31,7 +31,7 @@ class _ScrollListenerDemoPageState extends State<ScrollListenerDemoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: new Text("ClipDemoPage"),
+        title: new Text("ScrollListenerDemoPage"),
       ),
       body: new Container(
         child: NotificationListener(

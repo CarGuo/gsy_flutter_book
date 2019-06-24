@@ -62,7 +62,7 @@ class _ScrollToIndexDemoPageState extends State<ScrollToIndexDemoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: new Text("ClipDemoPage"),
+        title: new Text("ScrollToIndexDemoPage"),
       ),
       body: new Container(
         child: ListView(
