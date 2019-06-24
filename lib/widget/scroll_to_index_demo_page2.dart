@@ -95,6 +95,7 @@ class CardItem extends StatelessWidget {
 }
 
 class ItemModel {
+  ///这个key是关键
   GlobalKey globalKey = new GlobalKey();
 
   ///可以添加你的代码

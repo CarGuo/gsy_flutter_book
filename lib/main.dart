@@ -4,6 +4,7 @@ import 'package:gsy_flutter_demo/widget/controller_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/scroll_listener_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/scroll_to_index_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/scroll_to_index_demo_page2.dart';
+import 'package:gsy_flutter_demo/widget/transform_demo_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -69,6 +70,7 @@ const routerName = [
   "滑动监听 例子",
   "滑动到指定位置 例子",
   "滑动到指定位置2 例子",
+  "Transform 例子",
 ];
 
 Map<String, WidgetBuilder> routers = {
@@ -87,6 +89,8 @@ Map<String, WidgetBuilder> routers = {
   "widget/scroll_index2": (context) {
     return new ScrollToIndexDemoPage2();
   },
-
+  "widget/transform": (context) {
+    return new TransformDemoPage();
+  },
 
 };
