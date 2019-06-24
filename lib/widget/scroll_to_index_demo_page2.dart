@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 /// 滑动到指定位置 GlobalKey 版本
@@ -75,6 +77,11 @@ class _ScrollToIndexDemoPageState2 extends State<ScrollToIndexDemoPage2> {
 }
 
 class CardItem extends StatelessWidget {
+
+
+  final random = math.Random();
+
+
   final ItemModel data;
 
   CardItem(this.data, {key}) : super(key: key);
@@ -83,7 +90,7 @@ class CardItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: new Container(
-        height: 60,
+        height: (300 * random.nextDouble()),
         alignment: Alignment.centerLeft,
         child: new Container(
           margin: EdgeInsets.all(5),
