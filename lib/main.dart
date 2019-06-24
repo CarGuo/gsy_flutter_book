@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gsy_flutter_demo/widget/clip_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/controller_demo_page.dart';
+import 'package:gsy_flutter_demo/widget/refrsh_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/scroll_listener_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/scroll_to_index_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/scroll_to_index_demo_page2.dart';
@@ -73,6 +74,7 @@ const routerName = [
   "滑动到指定位置2 例子",
   "Transform 例子",
   "文本行间距 例子",
+  "简单上下刷新 例子",
 ];
 
 Map<String, WidgetBuilder> routers = {
@@ -97,4 +99,8 @@ Map<String, WidgetBuilder> routers = {
   "widget/text_line": (context) {
     return new TextLineHeightDemoPage();
   },
+  "widget/refresh": (context) {
+    return new RefreshDemoPage();
+  },
+
 };
