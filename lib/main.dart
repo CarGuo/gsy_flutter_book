@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gsy_flutter_demo/widget/ControllerDemoPage.dart';
+import 'package:gsy_flutter_demo/widget/clip_demo_page.dart';
+import 'package:gsy_flutter_demo/widget/controller_demo_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -61,10 +62,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
 const routerName = [
   "Controller 例子",
+  "圆角 例子",
 ];
 
 Map<String, WidgetBuilder> routers = {
   "widget/controller": (context) {
     return new ControllerDemoPage();
   },
+  "widget/clip": (context) {
+    return new ClipDemoPage();
+  },
+
 };
