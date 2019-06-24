@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gsy_flutter_demo/widget/clip_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/controller_demo_page.dart';
+import 'package:gsy_flutter_demo/widget/custom_pull/refrsh_demo_page3.dart';
 import 'package:gsy_flutter_demo/widget/refrsh_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/refrsh_demo_page2.dart';
 import 'package:gsy_flutter_demo/widget/scroll_listener_demo_page.dart';
@@ -77,6 +78,7 @@ const routerName = [
   "文本行间距 例子",
   "简单上下刷新 例子",
   "简单上下刷新2 例子",
+  "简单上下刷新3 例子",
 ];
 
 Map<String, WidgetBuilder> routers = {
@@ -106,6 +108,9 @@ Map<String, WidgetBuilder> routers = {
   },
   "widget/refresh2": (context) {
     return new RefreshDemoPage2();
+  },
+  "widget/refresh3": (context) {
+    return new RefreshDemoPage3();
   },
 
 
