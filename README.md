@@ -2,7 +2,8 @@
 
 ### 不同于 [GSYGithubAppFlutter](https://github.com/CarGuo/GSYGithubAppFlutter) 项目，本项目将逐步完善各种 Flutter 独立例子，方便新手学习上手。
 
-> 目前开始补全完善，暂时还没完成，敬请期待。
+
+> 目前开始逐步补全完善，主要提供一些有用或者有趣的例子，如果你也有好例子，环境提交 PR 。
 
 ### 已有例子
 
