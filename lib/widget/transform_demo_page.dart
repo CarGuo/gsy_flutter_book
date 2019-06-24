@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class TransformDemoPage extends StatelessWidget {
+
+  ///头像
   getHeader(context) {
     ///向上偏移 -30 位置
     return Transform.translate(
