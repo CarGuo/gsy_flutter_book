@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gsy_flutter_demo/widget/clip_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/controller_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/scroll_listener_demo_page.dart';
+import 'package:gsy_flutter_demo/widget/scroll_to_index_demo_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -65,6 +66,7 @@ const routerName = [
   "Controller 例子",
   "圆角 例子",
   "滑动监听 例子",
+  "滑动到指定位置 例子",
 ];
 
 Map<String, WidgetBuilder> routers = {
@@ -76,6 +78,9 @@ Map<String, WidgetBuilder> routers = {
   },
   "widget/scroll": (context) {
     return new ScrollListenerDemoPage();
+  },
+  "widget/scroll_index": (context) {
+    return new ScrollToIndexDemoPage();
   },
 
 
