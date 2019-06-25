@@ -3,6 +3,7 @@ import 'package:gsy_flutter_demo/widget/bubble/bubble_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/clip_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/controller_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/custom_pull/refrsh_demo_page3.dart';
+import 'package:gsy_flutter_demo/widget/honor_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/positioned_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/refrsh_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/refrsh_demo_page2.dart';
@@ -85,6 +86,7 @@ const routerName = [
   "绝对定位 例子",
   "弹出提示框 例子",
   "Tag 例子",
+  "共享元素 例子",
 ];
 
 Map<String, WidgetBuilder> routers = {
@@ -126,6 +128,9 @@ Map<String, WidgetBuilder> routers = {
   },
   "widget/tags": (context) {
     return new TagDemoPage();
+  },
+  "widget/honor": (context) {
+    return new HonorDemoPage();
   },
 
 };
