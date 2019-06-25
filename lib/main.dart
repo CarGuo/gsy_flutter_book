@@ -10,6 +10,7 @@ import 'package:gsy_flutter_demo/widget/refrsh_demo_page2.dart';
 import 'package:gsy_flutter_demo/widget/scroll_listener_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/scroll_to_index_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/scroll_to_index_demo_page2.dart';
+import 'package:gsy_flutter_demo/widget/statusbar_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/tag_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/text_line_height_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/transform_demo_page.dart';
@@ -87,6 +88,7 @@ const routerName = [
   "弹出提示框 例子",
   "Tag 例子",
   "共享元素 例子",
+  "状态栏颜色 例子",
 ];
 
 Map<String, WidgetBuilder> routers = {
@@ -131,6 +133,9 @@ Map<String, WidgetBuilder> routers = {
   },
   "widget/honor": (context) {
     return new HonorDemoPage();
+  },
+  "widget/statusbar": (context) {
+    return new StatusBarDemoPage();
   },
 
 };
