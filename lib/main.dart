@@ -9,6 +9,7 @@ import 'package:gsy_flutter_demo/widget/refrsh_demo_page2.dart';
 import 'package:gsy_flutter_demo/widget/scroll_listener_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/scroll_to_index_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/scroll_to_index_demo_page2.dart';
+import 'package:gsy_flutter_demo/widget/tag_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/text_line_height_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/transform_demo_page.dart';
 
@@ -83,6 +84,7 @@ const routerName = [
   "简单上下刷新3 例子",
   "绝对定位 例子",
   "弹出提示框 例子",
+  "Tag 例子",
 ];
 
 Map<String, WidgetBuilder> routers = {
@@ -121,6 +123,9 @@ Map<String, WidgetBuilder> routers = {
   },
   "widget/bubble": (context) {
     return new BubbleDemoPage();
+  },
+  "widget/tags": (context) {
+    return new TagDemoPage();
   },
 
 };
