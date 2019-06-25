@@ -4,6 +4,7 @@ import 'package:gsy_flutter_demo/widget/clip_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/controller_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/custom_pull/refrsh_demo_page3.dart';
 import 'package:gsy_flutter_demo/widget/honor_demo_page.dart';
+import 'package:gsy_flutter_demo/widget/keyboard_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/positioned_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/refrsh_demo_page.dart';
 import 'package:gsy_flutter_demo/widget/refrsh_demo_page2.dart';
@@ -89,6 +90,7 @@ const routerName = [
   "Tag 例子",
   "共享元素 例子",
   "状态栏颜色 例子",
+  "键盘相关 例子",
 ];
 
 Map<String, WidgetBuilder> routers = {
@@ -136,6 +138,9 @@ Map<String, WidgetBuilder> routers = {
   },
   "widget/statusbar": (context) {
     return new StatusBarDemoPage();
+  },
+  "widget/keyboard": (context) {
+    return new KeyBoardDemoPage();
   },
 
 };
