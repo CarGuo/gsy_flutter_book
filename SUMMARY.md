@@ -46,9 +46,9 @@
 
 * [二十一、 Flutter 画面渲染的全面解析](Flutter-21.md)
 
-* **[Flutter SDK 更新集锦](UPDATE.md)**
+* **[Flutter SDK 更新集锦](UPDATE.md)**	
 
-     Flutter
+  - **Flutter**
 
   - [Flutter Interact 的 Flutter 1.12 大进化和回顾](Flutter-112.md)
   - [Flutter 1.17 | 2020年度第一个稳定版本](Flutter-117.md)
@@ -57,9 +57,7 @@
   - [Flutter 2.2 全新功能介绍](Flutter-220.md)
   - [Flutter 2.5 发布啦，快来看看新特性](Flutter-250.md)
   - [Flutter 2.8 release 发布，快来看看新特性吧](Flutter-280.md)
-
-     Dart
-
+  - **Dart**
   - [Dart 2.12 发布，稳定空安全声明和FFI版本，Dart 未来的计划](Dart-212.md)
   - [Dart 2.14 发布，新增语言特性和共享标准 lint](Dart-214.md)
   - [Dart 2.15 发布的新特性](Dart-215.md)
