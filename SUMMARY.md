@@ -46,7 +46,7 @@
 
 * [二十一、 Flutter 画面渲染的全面解析](Flutter-21.md)
 
-* **[Flutter SDK 更新集锦](UPDATE.md)**	
+* [Flutter SDK 更新集锦](UPDATE.md)
 
   - **Flutter**
 
