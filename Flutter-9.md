@@ -16,7 +16,7 @@
 
 我们知道 `Widget` 最终都转化为 `RenderObject` ， 所以了解绘制我们直接先看 `RenderObject` 的 `paint` 方法。
 
-如下图所示，所有的  `RenderObject` 子类都必须实现 `paint` 方法，并且该方法并不是给用户直接调用，需要更新绘制时，你可以通过 `markNeddsPaint` 方法去触发界面绘制。
+如下图所示，所有的  `RenderObject` 子类都必须实现 `paint` 方法，并且该方法并不是给用户直接调用，需要更新绘制时，你可以通过 `markNeedsPaint` 方法去触发界面绘制。
 
 ![image.png](http://img.cdn.guoshuyu.cn/20190604_Flutter-9/image1)
 
