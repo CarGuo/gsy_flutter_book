@@ -57,4 +57,10 @@
 * [Flutter 小技巧之玩转字体渲染和问题修复 ](Flutter-N3.md)
 * [Flutter 小技巧之有趣的动画技巧](Flutter-N4.md)
 * [Flutter 小技巧之 Dart 里的 List 和 Iterable 你真的搞懂了吗？](Flutter-N6.md)
+* [Flutter 小技巧之  MediaQuery  和 build 优化你不知道的秘密](Flutter-N7.md)
+* [Flutter 小技巧之 ListView 和 PageView 的各种花式嵌套](Flutter-N5.md)
+* [Flutter 小技巧之优化你使用的 BuildContext](Flutter-N8.md)
+* [如何利用 Flutter 实现炫酷的 3D 卡片和帅气的 360° 展示效果](Flutter-N9.md)
+* [给掘金 Logo 快速添加动画效果，并支持全平台开发框架](Flutter-N10.md)
+* [Flutter 实现 “真” 3D 动画效果，用纯代码实现立体 Dash 和 3D 掘金 Logo](Flutter-N11.md)
 
