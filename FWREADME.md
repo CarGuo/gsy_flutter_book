@@ -67,4 +67,10 @@
 * [Flutter 小技巧之优化你的代码性能](Fluttter-N13.md)
 * [Flutter 之快速理解混合开发里的手势事件传递](Flutter-N17.md)
 * [一文快速带你了解 KMM 、 Compose 和 Flutter 的现状](Flutter-CCK.md)
+* [Android 开发者的跨平台 - Flutter or Compose ？](SQS.md)
+* [Flutter 小技巧之快速理解手势逻辑](N15.md)
+
+  
+
+
 
