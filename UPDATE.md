@@ -12,6 +12,7 @@
 - [Flutter 2.10 release 发布，快来看看新特性吧](Flutter-2100.md)
 - [Flutter 3.0 发布啦～快来看看有什么新功能-2022 Google I/O](Flutter-300.md)
 - [Flutter 3.3 正式发布，快来看看有什么新功能吧](Flutter-330.md)
+- [Flutter 3.7 正式发布，快来看看有什么新功能吧](Flutter-370.md)
 
 
 
@@ -25,4 +26,5 @@
 - [Dart 2.16 发布的新特性](Dart-216.md)
 - [Dart 2.17 发布的新特性](Dart-217.md)
 - [Dart 2.18 发布，Objective-C 和 Swift interop](Dart-218.md)
+- [Flutter - Dart 3α  新特性 Record 和 Patterns 的提前预览讲解](Dart-300a.md)
 
