@@ -261,7 +261,7 @@ Flutter 在 Debug 和 Release 下分别是 *JIT* 和 *AOT* 模式，而在 DEBUG
 * Github ： [https://github.com/CarGuo/](https://github.com/CarGuo)
 * **开源 Flutter 完整项目：https://github.com/CarGuo/GSYGithubAppFlutter**
 * **开源 Flutter 多案例学习型项目: https://github.com/CarGuo/GSYFlutterDemo**
-* **开源 Fluttre 实战电子书项目：https://github.com/CarGuo/GSYFlutterBook**
+* **开源 Flutter 实战电子书项目：https://github.com/CarGuo/GSYFlutterBook**
 
 ##### 完整开源项目推荐：
 
