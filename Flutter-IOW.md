@@ -120,3 +120,13 @@ Server started on port 8080
 很高兴能看到 Flutter 团队最终去定了 Web 的未来路线，这让 Web 的未来更加明朗，当然，正如前面所说的，**Flutter 是第一个围绕 CanvasKit 和 WebAssembly 等新兴 Web 技术进行架构设计的框架**。
 
 **所以 Flutter Web不是为了设计为通用 Web 的框架去 Angular 和 React 等竞争，它是让你在使用 Flutter 的时候，可以将能力很好地释放到 Web 领域**，而 CanvasKit 带来的一致性更符合 Flutter Web 的定位，当然，解决加载时长问题会是任重道远的需求。
+
+**最后不得不提 WebGPU**， WebGPU 作为新一代的 WebGL，可以提供在浏览器绘制 3D 的全新实现，它属于 GPU硬件（显卡）向 Web（浏览器）开放的低级 API，包括图形和计算两方面相关接口。
+
+WebGPU 来自 W3C 制定的标准，与 WebGL 不同，WebGPU 不是基于 OpenGL ，它是一个新的全新标准，发起者是苹果，目前由 W3C GPU 与来自苹果、Mozilla、微软和谷歌一起制定开发，不同于 WebGL (OpenGL ES Web 版本)，WebGPU 是基于 Vulkan、Metal 和 Direct3D 12 等，能提供更好的性能和多线程支持。
+
+> WebGPU 已经被正式集成到 Chrome 113 中，首个版本可在会支持 Vulkan 的 ChromeOS 设备、 Direct3D 12 的 Windows 设备和 macOS 的 Chrome 113 浏览器，除此之外 Linux、Android 也将在 2023 年内开始陆续发布，同步目前也初步登陆了 Firefox 和 Safari 。
+
+提及 WebGPU 的原因在于：**WebGPU + WebAssembly 是否在未来可以让 Web 也支持 Impeller 的可能？**。
+
+> 详细可见：https://cohost.org/mcc/post/1406157-i-want-to-talk-about-webgpu 和 https://www.infoq.cn/article/qwawharqawdragtcoxqv
