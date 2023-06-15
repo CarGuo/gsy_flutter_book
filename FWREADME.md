@@ -80,6 +80,7 @@
 * [Flutter 小技巧之横竖列表的自适应大小布局支持](Flutter-N24.md)
 * [Flutter 3.10 之 Flutter Web 路线已定，可用性进一步提升，快来尝鲜 WasmGC](Flutter-IOW.md)
 * [Flutter 3.10 适配之单例 Window 弃用，一起来了解  View.of 和 PlatformDispatcher](Flutter-310Win.md)
+* [Flutter 小技巧之 3.10 全新的  MediaQuery 优化与 InheritedModel ](Flutter-N25.md)
 
   
 
