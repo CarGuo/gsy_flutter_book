@@ -176,4 +176,4 @@ Flutter 的 Visual Studio Code 扩展也获得了许多增强功能，包括**�
 -   Web 上的原始图像使用正确的来源和颜色：https://docs.flutter.dev/release/breaking-changes/raw-images-on-web-uses-correct-origin-and-colors
 -  Scribble Text Input Client：https://docs.flutter.dev/release/breaking-changes/scribble-text-input-client
 
-如果你仍在使用这些 API，可以[阅读 flutter.dev 上的迁移指南](https://docs.flutter.dev/release/breaking-changes)，与往常一样，非常感谢社区[提供的测试](https://github.com/flutter/tests/blob/master/README.md)，帮助我们识别这些重大变化。
+如果你仍在使用这些 API，可以[阅读 flutter.dev 上的迁移指南](https://docs.flutter.dev/release/breaking-changes)，与往常一样，非常感谢社区[提供的测试](https://github.com/flutter/tests/blob/master/README.md)，帮助我们识别这些重大变化。FL
