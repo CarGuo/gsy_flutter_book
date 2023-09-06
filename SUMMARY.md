@@ -241,6 +241,10 @@
 
   * [社区说|Flutter 一知半解，带你拨云见月](Flutter-SQS2023.md)
 
+  * [Flutter 小技巧之 3.13 全新生命周期 AppLifecycleListener ](Flutter-N31.md)
+
+  * [Flutter 最优秀动画库「完全商业化」，Rive 2 你全面了解过吗？](Flutter-Rive.md)
+
 * [Flutter 工程化选择](GCH.md)
   * [Flutter 工程化框架选择——搞定 Flutter 动画](Z1.md)
   * [Flutter 工程化框架选择 — 搞定 UI 生产力](Z3.md)

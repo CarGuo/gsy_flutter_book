@@ -86,6 +86,8 @@
 * [Flutter III 之你不知道的 PlatformView 的混乱之治](Flutter-N30.md)
 * [掘力计划｜Flutter 混合开发的混乱之治【直播回顾】](Flutter-JL2023.md)
 * [社区说|Flutter 一知半解，带你拨云见月](Flutter-SQS2023.md)
+* [Flutter 小技巧之 3.13 全新生命周期 AppLifecycleListener ](Flutter-N31.md)
+* [Flutter 最优秀动画库「完全商业化」，Rive 2 你全面了解过吗？](Flutter-Rive.md)
 
   
 
