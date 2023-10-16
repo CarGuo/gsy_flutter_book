@@ -88,6 +88,8 @@
 * [社区说|Flutter 一知半解，带你拨云见月](Flutter-SQS2023.md)
 * [Flutter 小技巧之 3.13 全新生命周期 AppLifecycleListener ](Flutter-N31.md)
 * [Flutter 最优秀动画库「完全商业化」，Rive 2 你全面了解过吗？](Flutter-Rive.md)
+* [Harmony 开始支持 Flutter ，聊聊 Harmony 和 Flutter 之间的因果](Flutter-HF.md)
+* [Flutter 与 Dart 的市场应用](Flutter-WH.md)
 
   
 
