@@ -90,6 +90,8 @@
 * [Flutter 最优秀动画库「完全商业化」，Rive 2 你全面了解过吗？](Flutter-Rive.md)
 * [Harmony 开始支持 Flutter ，聊聊 Harmony 和 Flutter 之间的因果](Flutter-HF.md)
 * [Flutter 与 Dart 的市场应用](Flutter-WH.md)
+* [Flutter 小技巧之不一样的思路实现炫酷 3D 翻页折叠动画](Flutter-GLSL.md)
+* [Flutter 小技巧之 3.16 升级最坑 M3 默认适配技巧](Flutter-M3D.md)
 
   
 

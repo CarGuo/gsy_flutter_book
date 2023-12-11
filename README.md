@@ -94,6 +94,7 @@
   - [Flutter 3.3 正式发布，快来看看有什么新功能吧](Flutter-330.md)
   - [Flutter 3.7 正式发布，快来看看有什么新功能吧](Flutter-370.md)
   - [ Flutter 3.10 发布，快来看看有什么更新吧](Flutter-310.md)
+  - [Flutter 3.16 发布，快来看有什么更新吧](Flutter-316.md)
   - **Dart**
   - [Dart 2.12 发布，稳定空安全声明和FFI版本，Dart 未来的计划](Dart-212.md)
   - [Dart 2.14 发布，新增语言特性和共享标准 lint](Dart-214.md)
@@ -103,6 +104,7 @@
   - [Dart 2.18 发布，Objective-C 和 Swift interop](Dart-218.md)
   - [Flutter - Dart 3α  新特性 Record 和 Patterns 的提前预览讲解](Dart-300a.md)
   - [Dart 3 发布，快来看看有什么更新吧](Dart-300.md)
+  - [Dart 3.2 更新，Flutter Web 的未来越来越明朗](Dart-320.md)
 
 * [番外](FWREADME.md)
 
@@ -194,8 +196,9 @@
   * [Flutter 小技巧之 3.13 全新生命周期 AppLifecycleListener ](Flutter-N31.md)
   * [Flutter 最优秀动画库「完全商业化」，Rive 2 你全面了解过吗？](Flutter-Rive.md)
   * [Harmony 开始支持 Flutter ，聊聊 Harmony 和 Flutter 之间的因果](Flutter-HF.md)
-  * [Harmony 开始支持 Flutter ，聊聊 Harmony 和 Flutter 之间的因果](Flutter-HF.md)
   * [Flutter 与 Dart 的市场应用](Flutter-WH.md)
+  * [Flutter 小技巧之不一样的思路实现炫酷 3D 翻页折叠动画](Flutter-GLSL.md)
+  * [Flutter 小技巧之 3.16 升级最坑 M3 默认适配技巧](Flutter-M3D.md)
   
   [Flutter 工程化选择](GCH.md)
   
