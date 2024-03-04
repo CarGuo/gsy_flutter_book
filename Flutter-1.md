@@ -4,7 +4,7 @@
 
 本系列将完整讲述：如何入门 Flutter 开发，如何快速从 0 开发一个完整的 Flutter APP，配套高完成度  Flutter 开源项目 [GSYGithubAppFlutter](https://github.com/CarGuo/GSYGithubAppFlutter)，提供 Flutter 的开发技巧和问题处理，之后深入源码和实战为你全面解析 Flutter。
 
-> 笔者相继开发过 Flutter、React Native 、Weex 等主流跨平台框架项目，其中 Flutter 的跨平台兼容性无疑最好。前期开发调试完全在 Android 端进行的情况下，第一次在 iOS 平台运行居然没有任何错误，并且还没出现 UI 兼容问题，相信对于经历过跨平台开发的猿们而言，是多么的不可思议画面，并且 Fluuter 的 HotLoad 相比较其他两个平台，也是丝滑的让人无法相信，吹爆了！
+> 笔者相继开发过 Flutter、React Native 、Weex 等主流跨平台框架项目，其中 Flutter 的跨平台兼容性无疑最好。前期开发调试完全在 Android 端进行的情况下，第一次在 iOS 平台运行居然没有任何错误，并且还没出现 UI 兼容问题，相信对于经历过跨平台开发的猿们而言，是多么的不可思议画面，并且 Flutter 的 HotLoad 相比较其他两个平台，也是丝滑的让人无法相信，吹爆了！
 
 ## 文章汇总地址：
 
