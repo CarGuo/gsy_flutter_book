@@ -92,6 +92,10 @@
 * [Flutter 与 Dart 的市场应用](Flutter-WH.md)
 * [Flutter 小技巧之不一样的思路实现炫酷 3D 翻页折叠动画](Flutter-GLSL.md)
 * [Flutter 小技巧之 3.16 升级最坑 M3 默认适配技巧](Flutter-M3D.md)
+* [2024 Flutter 重大更新，Dart 宏（Macros）编程开始支持，JSON 序列化有救](Flutter-macros.md)
+* [Flutter 小技巧之升级适配 Xcode15 ](Flutter-X15.md)
+* [Flutter 2024 路线规划，更多可期待的功能正在路上](Flutter-2024.md)
+* [2024 Impeller：快速了解 Flutter 的渲染引擎的优势](Flutter-Impeller.md)
 
   
 
