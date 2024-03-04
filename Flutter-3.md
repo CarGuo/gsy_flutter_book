@@ -18,7 +18,7 @@
 
 
 从上表我们可以看到：
-* Fluuter的 apk 会比 ipa 更小一些，这其中的一部分原因是 Flutter 使用的 `Skia ` 在Android 上是自带的。
+* Flutter的 apk 会比 ipa 更小一些，这其中的一部分原因是 Flutter 使用的 `Skia ` 在Android 上是自带的。
 * 横向对比 React Native ，虽然项目不完全一样，但是大部分功能一致的情况下， Flutter 的 Apk 确实更小一些。这里又有一个细节，rn 的 ipa 包体积小很多，这其实是因为 `javascriptcore` 在 ios上 是内置的原因。
 
 * 对上述内容有兴趣的可以看看[《移动端跨平台开发的深度解析》](https://juejin.im/post/5b395eb96fb9a00e556123ef)。
