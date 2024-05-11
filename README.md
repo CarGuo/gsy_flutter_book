@@ -16,7 +16,7 @@
 
 - ### [在线阅读地址](https://guoshuyu.cn/home/wx/)
 
-- ### [PDF 下载地址](https://www.alipan.com/s/pWygf7REfvP)
+- ### [PDF 下载地址](https://www.alipan.com/s/CKzPWjsa8EG)
 
 - ### [Github 地址 CarGuo](https://github.com/CarGuo)
 
