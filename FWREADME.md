@@ -96,6 +96,11 @@
 * [Flutter 小技巧之升级适配 Xcode15 ](Flutter-X15.md)
 * [Flutter 2024 路线规划，更多可期待的功能正在路上](Flutter-2024.md)
 * [2024 Impeller：快速了解 Flutter 的渲染引擎的优势](Flutter-Impeller.md)
+* [2024  Flutter  iOS  隐私清单上线，5 月 1 号最后期限，你收到  「ITMS-91053」 了吗？](privacy.md)
+* [Flutter Web 的未来，Wasm Native 即将到来](wasm.md)
+* [Flutter 即将放弃 Html renderer ，你是否支持这个提议？](htmlrm.md)
+* [Flutter 之 HTTP3/QUIC 和 Cronet 你了解过吗？](quic.md)
+* [2024 Flutter 一季度热门  issue/roadmap 进展和个人感触闲聊](issue.md)
 
   
 
