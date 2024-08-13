@@ -17,6 +17,7 @@
 - [Flutter 3.16 发布，快来看有什么更新吧](Flutter-316.md)
 - [Flutter 3.19 发布，快来看有什么更新吧](Flutter-319.md)
 - [Flutter 3.22 发布，快来看看有什么更新吧？](Flutter-322.md)
+- [Flutter 3.24 发布，快来看看有什么更新吧？](Flutter-324.md)
 
 
 
@@ -35,4 +36,5 @@
 - [Dart 3.2 更新，Flutter Web 的未来越来越明朗](Dart-320.md)
 - [Dart 3.3 发布：扩展类型、JavaScript Interop 等](Dart-303.md)
 - [Dart 3.4 发布，快来看看有什么更新吧](Dart-340.md)
+- [Dart 3.5 发布，快来看看有什么更新吧](Dart-350.md)
 

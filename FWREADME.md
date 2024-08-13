@@ -206,7 +206,13 @@
 
 * [Flutter 小技巧之为什么推荐 Widget 使用 const ](Flutter-N46.md)
 
+* [Flutter CTO  2024 报告出炉解读，看看有没有你关心的问题](FCTO.md)
+
+* [LG 选择 Flutter 来增强其智能电视操作系统 webOS](LG.md)
+
 * [着色器预热？为什么 Flutter 需要？为什么原生 App 不需要？那 Compose 呢？Impeller 呢？](Flutter-N47.md)
+
+* [Flutter 正在迁移到  Swift Package Manager ，未来会弃用 CocoaPods 吗？](SPM.md)
 
   
 

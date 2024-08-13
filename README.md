@@ -97,6 +97,7 @@
   - [Flutter 3.16 发布，快来看有什么更新吧](Flutter-316.md)
   - [Flutter 3.19 发布，快来看有什么更新吧](Flutter-319.md)
   - [Flutter 3.22 发布，快来看看有什么更新吧？](Flutter-322.md)
+  - [Flutter 3.24 发布，快来看看有什么更新吧？](Flutter-324.md)
   - **Dart**
   - [Dart 2.12 发布，稳定空安全声明和FFI版本，Dart 未来的计划](Dart-212.md)
   - [Dart 2.14 发布，新增语言特性和共享标准 lint](Dart-214.md)
@@ -109,6 +110,7 @@
   - [Dart 3.2 更新，Flutter Web 的未来越来越明朗](Dart-320.md)
   - [Dart 3.3 发布：扩展类型、JavaScript Interop 等](Dart-303.md)
   - [Dart 3.4 发布，快来看看有什么更新吧](Dart-340.md)
+  - [Dart 3.5 发布，快来看看有什么更新吧](Dart-350.md)
 
 * [番外](FWREADME.md)
 
@@ -215,9 +217,12 @@
   * [Flutter 小技巧之面试题里有意思的异步问题](Flutter-N44.md)
   * [Flutter 面试八股之深入理解  Dart 异步实现机制](Flutter-N45.md)
   * [Flutter 小技巧之为什么推荐 Widget 使用 const ](Flutter-N46.md)
+  * [Flutter CTO  2024 报告出炉解读，看看有没有你关心的问题](FCTO.md)
   * [着色器预热？为什么 Flutter 需要？为什么原生 App 不需要？那 Compose 呢？Impeller 呢？](Flutter-N47.md)
+  * [Flutter 正在迁移到  Swift Package Manager ，未来会弃用 CocoaPods 吗？](SPM.md)
+  * [LG 选择 Flutter 来增强其智能电视操作系统 webOS](LG.md)
   
-  [Flutter 工程化选择](GCH.md)
+- [Flutter 工程化选择](GCH.md)
   
   - [Flutter 工程化框架选择——搞定 Flutter 动画](Z1.md)
   - [Flutter 工程化框架选择 — 搞定 UI 生产力](Z3.md)
