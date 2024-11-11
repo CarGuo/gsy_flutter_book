@@ -214,6 +214,24 @@
 
 * [Flutter 正在迁移到  Swift Package Manager ，未来会弃用 CocoaPods 吗？](SPM.md)
 
+* [Flutter Web 正式官宣弃用 HTML renderer ， Canvas 路线成为唯一](Flutter-web1.md)
+
+* [Flutter 小技巧之 Row/Column 即将支持  Flex.spacing ](Flutter-N33.md)
+
+* [Flutter 小技巧之 equatable 包解析以及宏编程解析](Flutter-FM.md)
+
+* [Flutter 之 ftcon24usa 大会，创始人分享 Flutter 十年发展史](ftcon24usa.md)
+
+* [Flutter Color 大调整，需适配迁移，颜色不再是 0-255，而是 0-1.0，支持更大色域](Flutter-wide.md)
+
+* [Rive 动画框架竟然支持响应式布局，全平台动画框架开启全新 UI 交互能力](Flutter-Rive2.md)
+
+* [Flutter PC 多窗口新进展，已在  Ubuntu/Canonical 展示](Flutter-FPC.md)
+
+* [Flutter 正在切换成 Monorepo 和支持 workspaces ](Flutter-Mono.md)
+
+* [Flutter 小技巧之 Shader 实现酷炫的粒子动画](Flutter-glsl2.md)
+
   
 
 
