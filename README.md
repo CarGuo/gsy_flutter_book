@@ -98,6 +98,7 @@
   - [Flutter 3.19 发布，快来看有什么更新吧](Flutter-319.md)
   - [Flutter 3.22 发布，快来看看有什么更新吧？](Flutter-322.md)
   - [Flutter 3.24 发布，快来看看有什么更新吧？](Flutter-324.md)
+  - [Flutter 3.27 发布啦，快来看有什么更新吧](Flutter-327.md)
   - **Dart**
   - [Dart 2.12 发布，稳定空安全声明和FFI版本，Dart 未来的计划](Dart-212.md)
   - [Dart 2.14 发布，新增语言特性和共享标准 lint](Dart-214.md)
@@ -111,6 +112,7 @@
   - [Dart 3.3 发布：扩展类型、JavaScript Interop 等](Dart-303.md)
   - [Dart 3.4 发布，快来看看有什么更新吧](Dart-340.md)
   - [Dart 3.5 发布，快来看看有什么更新吧](Dart-350.md)
+  - [Dart 3.6 发布,workspace 和 Digit separators ](Dart-360.md)
 
 * [番外](FWREADME.md)
 
@@ -231,6 +233,12 @@
   * [Flutter PC 多窗口新进展，已在  Ubuntu/Canonical 展示](Flutter-FPC.md)
   * [Flutter 正在切换成 Monorepo 和支持 workspaces ](Flutter-Mono.md)
   * [Flutter 小技巧之 Shader 实现酷炫的粒子动画](Flutter-glsl2.md)
+  * [Flutter 终于正式规划 IDE  Widget 预览支持，基础技术架构公布](Flutter-preview.md)
+  * [Flutter 小技巧之  OverlayPortal  实现自限性和可共享的页面图层](Flutter-vp.md)
+  * [聊聊 Flutter & Dart 里的内存泄漏和优化，也许没你想的那么复杂](Flutter-DL.md)
+  * [FlutterInProduction ，2024 年末，让我们看看 Flutter 现在的生态数据](Flutter-FT.md)
+  * [什么？Flutter 可能会被 SwiftUI/ArkUI  化？全新的 Flutter Roadmap ](Flutter-DE.md)
+  * [Flutter Web 正式移除 HTML renderer，只支持 CanvasKit 和 SkWasm](Flutter-FW2.md)
   
 - [Flutter 工程化选择](GCH.md)
   
