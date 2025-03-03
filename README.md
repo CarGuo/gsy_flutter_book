@@ -6,11 +6,8 @@
 ### 本系列将完整讲述：如何快速从 0 开发一个完整的 Flutter APP，配套高完成度  Flutter 开源项目 [GSYGithubAppFlutter](https://github.com/CarGuo/gsy_github_app_flutter) 和 [独立多案例学习型项目](https://github.com/CarGuo/gsy_flutter_demo) ，同时会提供一些Flutter的开发细节技巧，之后深入源码和实战为你全面解析 Flutter 。
 
 - ### [如果克隆太慢或者图片看不到，可尝试码云地址下载](https://gitee.com/CarGuo/GSYFlutterBook)
-- ### GSY新书：[《Flutter开发实战详解》](https://item.jd.com/12883054.html)上架啦：[京东](https://item.jd.com/12883054.html) / [当当](http://product.dangdang.com/28558519.html) / 电子版[京东读书](https://e.jd.com/30624414.html)和[Kindle](https://www.amazon.cn/dp/B08BHQ4TKK/ref=sr_1_5?__mk_zh_CN=亚马逊网站&keywords=flutter&qid=1593498531&s=digital-text&sr=1-5)
+- ### GSY老书：[《Flutter开发实战详解》](https://item.jd.com/12883054.html)上架啦：[京东](https://item.jd.com/12883054.html) / [当当](http://product.dangdang.com/28558519.html) / 电子版[京东读书](https://e.jd.com/30624414.html)和[Kindle](https://www.amazon.cn/dp/B08BHQ4TKK/ref=sr_1_5?__mk_zh_CN=亚马逊网站&keywords=flutter&qid=1593498531&s=digital-text&sr=1-5)
 
-> 这个项目和新书《Flutter开发实战详解》是两个不同的内容哦，不要搞混了～
-
-[![](http://img.cdn.guoshuyu.cn/WechatIMG65.jpeg)](https://item.jd.com/12883054.html)
 
 ----
 
@@ -271,3 +268,6 @@
 ### 如果对您有所帮助，欢迎投喂：
 
 ![](http://img.cdn.guoshuyu.cn/thanks.jpg)
+
+[![](http://img.cdn.guoshuyu.cn/WechatIMG65.jpeg)](https://item.jd.com/12883054.html)
+
