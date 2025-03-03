@@ -99,6 +99,7 @@
   - [Flutter 3.22 发布，快来看看有什么更新吧？](Flutter-322.md)
   - [Flutter 3.24 发布，快来看看有什么更新吧？](Flutter-324.md)
   - [Flutter 3.27 发布啦，快来看有什么更新吧](Flutter-327.md)
+  - [Flutter 3.29 发布啦，快来看有什么更新吧](Flutter-329.md)
   - **Dart**
   - [Dart 2.12 发布，稳定空安全声明和FFI版本，Dart 未来的计划](Dart-212.md)
   - [Dart 2.14 发布，新增语言特性和共享标准 lint](Dart-214.md)
@@ -113,6 +114,7 @@
   - [Dart 3.4 发布，快来看看有什么更新吧](Dart-340.md)
   - [Dart 3.5 发布，快来看看有什么更新吧](Dart-350.md)
   - [Dart 3.6 发布,workspace 和 Digit separators ](Dart-360.md)
+  - [Dart 3.7 发布，快来看看有什么更新吧](Dart-370.md)
 
 * [番外](FWREADME.md)
 
@@ -239,6 +241,15 @@
   * [FlutterInProduction ，2024 年末，让我们看看 Flutter 现在的生态数据](Flutter-FT.md)
   * [什么？Flutter 可能会被 SwiftUI/ArkUI  化？全新的 Flutter Roadmap ](Flutter-DE.md)
   * [Flutter Web 正式移除 HTML renderer，只支持 CanvasKit 和 SkWasm](Flutter-FW2.md)
+  * [Flutter 2024 年度回顾总结，致敬这精彩的一年](Flutter-FK.md)
+  * [Dart async/await 和 Kotlin suspend 有什么区别？顺带看看 Oppo ColorOS 上的 Flutter “彩蛋”](Flutter-Async.md)
+  * [深入 Flutter  和  Compose 在 UI 渲染刷新时 Diff  实现对比](Flutter-frc.md)
+  * [Flutter 新春第一弹，Dart 宏功能推进暂停，后续专注定制数据处理支持](Flutter-macros2.md)
+  * [Flutter 的 Widget Key 提议大调整？深入聊一聊 Key 的作用](Flutter-Key2.md)
+  * [Flutter Gradle 命令式插件正式移除，你迁移旧版 Gradle 配置了吗？](Flutter-KF.md)
+  * [Flutter 正在推进全新 PlatformView 实现 HCPP， 它又用到了 Android 上的什么黑科技](Flutter-HCPP.md)
+  * [不要升级，Flutter Debug 在  iOS 18.4 beta 无法运行，提示  mprotect failed:  Permission denied](Flutter-iOS184.md)
+  * [深入聊聊 Flutter 里最接近官方的热更新方案：Shorebrid](Flutter-shorebird.md)
   
 - [Flutter 工程化选择](GCH.md)
   
@@ -248,6 +259,8 @@
   - [Flutter 工程化框架选择 — 混合开发的摸爬滚打](Z6.md)
   - [Flutter 工程化框架选择 — add-to-app 的指路明灯](Z10.md)
   - [Flutter 工程化框架选择 — 状态管理何去何从](Z2.md)
+  - [Flutter 上的 Platform 和 UI 线程合并是怎么回事？它会带来什么？](Flutter-Thread.md)
+  - [吹爆 AI ？Flutter 开发在 Cursor & Trae 不一样的 AI 真实体验](Flutter-AI.md)
   
   
   
