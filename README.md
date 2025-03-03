@@ -26,7 +26,7 @@
 | GSYTech | [点我](https://juejin.im/user/582aca2ba22b9d006b59ae68/posts) | [点我](https://www.zhihu.com/people/carguo) | [点我](https://blog.csdn.net/ZuoYueLiang) | [点我](https://www.jianshu.com/u/6e613846e1ea) |
 
 
-![公众号](http://img.cdn.guoshuyu.cn/wechat_qq.png)
+
 
 ----
 
@@ -269,5 +269,5 @@
 
 ![](http://img.cdn.guoshuyu.cn/thanks.jpg)
 
-[![](http://img.cdn.guoshuyu.cn/WechatIMG65.jpeg)](https://item.jd.com/12883054.html)
+![公众号](http://img.cdn.guoshuyu.cn/wechat_qq.png)
 
