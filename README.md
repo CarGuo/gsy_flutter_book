@@ -33,49 +33,27 @@
 ### 目录
 
 * [零、GSY 历程](Flutter-0.md)
-
 * [一、Dart语言和Flutter基础](Flutter-1.md)
-
 * [二、 快速开发实战篇](Flutter-2.md)
-
 * [三、 打包与填坑篇](Flutter-3.md)
-
 * [四、 Redux、主题、国际化](Flutter-4.md)
-
 * [五、 深入探索](Flutter-5.md)
-
 * [六、 深入Widget原理](Flutter-6.md)
-
 * [七、 深入布局原理](Flutter-7.md)
-
 * [八、 实用技巧与填坑](Flutter-8.md)
-
 * [九、 深入绘制原理](Flutter-9.md)
-
 * [十、 深入图片加载流程](Flutter-10.md)
-
 * [十一、全面深入理解Stream](Flutter-11.md)
-
 * [十二、全面深入理解状态管理设计](Flutter-12.md)
-
 * [十三、全面深入触摸和滑动原理](Flutter-13.md)
-
 * [十四、混合开发打包 Android 篇](Flutter-14.md)
-
 * [十五、全面理解State与Provider](Flutter-15.md)
-
 * [十六、详解自定义布局实战](Flutter-16.md)
-
 * [十七、实用技巧与填坑二](Flutter-17.md)
-
 * [十八、 神奇的ScrollPhysics与Simulation](Flutter-18.md)
-
 * [十九、 Android 和 iOS 打包提交审核指南](Flutter-19.md)
-
 * [二十、 Android PlatformView 和键盘问题](Flutter-20.md)
-
 * [二十一、 Flutter 画面渲染的全面解析](Flutter-21.md)
-
 * **[Flutter SDK 更新集锦](UPDATE.md)**
 
   - **Flutter**
@@ -112,7 +90,8 @@
   - [Dart 3.5 发布，快来看看有什么更新吧](Dart-350.md)
   - [Dart 3.6 发布,workspace 和 Digit separators ](Dart-360.md)
   - [Dart 3.7 发布，快来看看有什么更新吧](Dart-370.md)
-
+  - [Dart 3.8 发布，快来看看有什么更新吧](Dart-380.md)
+  - [Flutter 3.32 发布啦，快来看有什么更新吧](Flutter-332.md)
 * [番外](FWREADME.md)
 
   * [Flutter 跨平台框架应用实战-2019极光开发者大会](Flutter-jg-meet.md)
@@ -252,6 +231,8 @@
   * [注意，暂时不要升级 MacOS ，Flutter/RN 等构建 ipa 可能会因 「ITMS-90048」This bundle is invalid 被拒绝](Flutter-UI.md)
   * [Android Vulkan 官宣转正并统一渲染堆栈 ，这对 Flutter 又有什么影响？](Flutter-AV.md)
   * [Flutter 小技巧之通过 MediaQuery 优化 App 性能](Flutter-MediaQuery2.md)
+  * [Flutter 上的 Platform 和 UI 线程合并是怎么回事？它会带来什么？](Flutter-Thread.md)
+  * [吹爆 AI ？Flutter 开发在 Cursor & Trae 不一样的 AI 真实体验](Flutter-AI.md)
   * [再聊 Flutter Riverpod ，注解模式下的 Riverpod 有什么特别之处，还有发展方向](Flutter-riverpod2.md)
   * [Flutter 开始支持   'dot-shorthands' 语法糖，实现自动类型推断](Flutter-fsts.md)
   * [2025 一季度 Flutter iOS 大坑超汇总，看看你踩中了没](Flutter-AlliOS.md)
@@ -259,6 +240,15 @@
   * [Flutter Widget IDE 预览新进展，开始推进落地发布](Flutter-preview2.md)
   * [Flutter 在全新 Platform 和 UI 线程合并后，出现了什么大坑和变化？](Flutter-thread2.md)
   * [Flutter Roadmap 2025 发布，快来看看有什么更新吧](Flutter-roadmap2025.md)
+  * [Compose Multiplatform Skia  对比 Flutter Impeller ，都是跨平台自绘有什么差异](si.md)
+  * [2025 跨平台框架更新和发布对比，这是你没看过的全新版本](kpt.md)
+  * [Flutter 小技巧之：实现 iOS 26 的“液态玻璃”](li.md)
+  * [Flutter 应该如何实现 iOS 26 的 Liquid Glass ，它为什么很难？](iOS-li.md)
+  * [Flutter 小技巧之：Flutter 3.32 的 Property Editor  生产力工具](pe.md)
+  * [为什么跨平台框架可以适配鸿蒙，它们的技术原理是什么？](fo.md)
+  * [Flutter 官方多窗口体验 ，为什么 Flutter  推进那么慢，而 CMP 却支持那么快](window.md)
+  * [iOS 26 beta1 重新禁止 JIT 执行，Flutter 下的 iOS 真机 hot load 暂时无法使用](iOS26.md)
+  * [Flutter 多版本管理工具 Puro ，它和 FVM 有什么区别？](puro.md)
   
 - [Flutter 工程化选择](GCH.md)
   
@@ -268,8 +258,6 @@
   - [Flutter 工程化框架选择 — 混合开发的摸爬滚打](Z6.md)
   - [Flutter 工程化框架选择 — add-to-app 的指路明灯](Z10.md)
   - [Flutter 工程化框架选择 — 状态管理何去何从](Z2.md)
-  - [Flutter 上的 Platform 和 UI 线程合并是怎么回事？它会带来什么？](Flutter-Thread.md)
-  - [吹爆 AI ？Flutter 开发在 Cursor & Trae 不一样的 AI 真实体验](Flutter-AI.md)
   
   
   

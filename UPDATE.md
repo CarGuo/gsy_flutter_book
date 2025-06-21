@@ -20,6 +20,7 @@
 - [Flutter 3.24 发布，快来看看有什么更新吧？](Flutter-324.md)
 - [Flutter 3.27 发布啦，快来看有什么更新吧](Flutter-327.md)
 - [Flutter 3.29 发布啦，快来看有什么更新吧](Flutter-329.md)
+- [Flutter 3.32 发布啦，快来看有什么更新吧](Flutter-332.md)
 
 
 
@@ -41,4 +42,5 @@
 - [Dart 3.5 发布，快来看看有什么更新吧](Dart-350.md)
 - [Dart 3.6 发布,workspace 和 Digit separators ](Dart-360.md)
 - [Dart 3.7 发布，快来看看有什么更新吧](Dart-370.md)
+- [Dart 3.8 发布，快来看看有什么更新吧](Dart-380.md)
 
