@@ -21,6 +21,7 @@
 - [Flutter 3.27 发布啦，快来看有什么更新吧](Flutter-327.md)
 - [Flutter 3.29 发布啦，快来看有什么更新吧](Flutter-329.md)
 - [Flutter 3.32 发布啦，快来看有什么更新吧](Flutter-332.md)
+- [Flutter 3.35 发布啦，快来看有什么更新吧](Flutter-335.md)
 
 
 
