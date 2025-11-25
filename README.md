@@ -1,3 +1,6 @@
+
+![](logo.png)
+
 # Flutter完整开发实战详解系列，GSY Flutter 系列专栏整合，不定期更新
 
 
@@ -19,11 +22,20 @@
 
 - ### [掘金博客 恋猫de小郭](https://juejin.im/user/582aca2ba22b9d006b59ae68/posts)
 
+## 完整学习型项目
+
+* ### 同款 Flutter 版 （ https://github.com/CarGuo/GSYGithubAppFlutter ）
+* ### 同款 Android Compose 版本（ https://github.com/CarGuo/GSYGithubAppCompose ）
+* ### 同款 Kotlin View 版 （ https://github.com/CarGuo/GSYGithubAppKotlin ）
+* ### 同款 ReactNative 版 （ https://github.com/CarGuo/GSYGithubApp ）
+* ### 同款 Weex 版 （ https://github.com/CarGuo/GSYGithubAppWeex ）
+
 - ### [开源 Flutter 多案例学习型项目](https://github.com/CarGuo/GSYFlutterDemo)
 
 | 公众号  | 掘金                                                         | 知乎                                        | CSDN                                      | 简书                                           |
 | ------- | ------------------------------------------------------------ | ------------------------------------------- | ----------------------------------------- | ---------------------------------------------- |
 | GSYTech | [点我](https://juejin.im/user/582aca2ba22b9d006b59ae68/posts) | [点我](https://www.zhihu.com/people/carguo) | [点我](https://blog.csdn.net/ZuoYueLiang) | [点我](https://www.jianshu.com/u/6e613846e1ea) |
+
 
 
 
