@@ -1,227 +1,135 @@
+# Flutter 又迎大坑修改？iOS 26 键盘变化可能带来大量底层改动
 
+又是一个小问题可能带来的大改动，感觉官方在评估的时候，有点过分细节了。
 
-最近刚好有网友咨询一个问题，那就顺便借着这个问题给大家深入介绍下 Flutter 中键盘弹起时，`Scaffold` 的内部发生了什么变化，让大家更好理解 Flutter 中的输入键盘和 `Scaffold` 的关系。
+这个问题来自去年底的 [#179482](https://github.com/flutter/flutter/issues/179482)  issue ，Flutter 在 iOS 26 上，某些场景会因为出现半透明键盘，而页面底下本来应该被键盘遮挡的 Widget，由于默认没有被绘制，从而出现键盘背景颜色 UI 异常：
 
-如下图所示，当时的问题是：*当界面内有 `TextField` 输入框时，点击键盘弹起后，界面内底部的按键和 FloatButton 会被挤到键盘上面，有什么办法可以让底部按键和 FloatButton 不被顶上来吗？*
+![](https://img.cdn.guoshuyu.cn/84b84f03-e44f-4bc5-915a-44165e5f874a.png)
 
-![](http://img.cdn.guoshuyu.cn/20210429_Flutter-KEY/image1)
+虽然问题看起来是一个圆角问题，但是实际上这是 **iOS 26 系统键盘增加了“半透明”后带来的问题，Flutter 在键盘后面那一层在某些场景下没有正确渲染内容**，导致键盘半透明区域透出来的不是底下 BottomSheet 的真实内容，而是一整块黑色区域。
 
+> issue 提到问题，问题最明显的场景主要出现在 iOS 26 的 `showModalBottomSheet()` 下。
 
-其实解决这个问题很简单，那就是只要**把 `Scaffold` 的 `resizeToAvoidBottomInset` 配置为 `false`** ，结果如下图所示，键盘弹起后底部按键和 FloatButton 不会再被顶上来，问题解决。**那为什么键盘弹起会和 `resizeToAvoidBottomInset` 有关系？**
+![](https://img.cdn.guoshuyu.cn/b7050f5b-0f38-4e8c-a091-d28f439a7cd1.png)
 
+为什么会这样？首先就是你的 App 目前是否使用了最新 Xcode 26 ，以及在  `Info.plist` 里有没有使用 `UIDesignRequiresCompatibility = YES` 让 App **继续使用旧的系统设计风格** ：
 
-![](http://img.cdn.guoshuyu.cn/20210429_Flutter-KEY/image2)
+| ![8b13916c1c0c6339201a1a9f3e797b2e](https://img.cdn.guoshuyu.cn/8b13916c1c0c6339201a1a9f3e797b2e.jpg) | ![](https://img.cdn.guoshuyu.cn/ce07c5b30aca25245ce4ba5bcfddcca0.jpg) | ![](https://img.cdn.guoshuyu.cn/f85eb5b7a5d97c730989b8f3a8c29be1.png) | ![](https://img.cdn.guoshuyu.cn/114b4e43b4a45a3fc04d00ca810f9220.png) |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 
+通过上面前两张图我们可以看到，iOS 26 正常情况下，系统键盘其实是会出现半透明效果并且具备圆角，虽然透明效果不是特别明显，但是对比后两张图里，可以看到微信和淘宝还是保留着原本的 iOS 18 的直角效果。
 
+> 如果还是保留原本风格，其实并不会遇到这个问题。
 
+**所以这个 issue 首先是需要在 Xcode 26 下，并且没有关闭 Liquid Glass 适配的情况下才会遇到**，当然，就算是 iOS 26 场景，一般情况下也不会有什么大问题，比如下图直接在界面内使用一个  `TextField` ，其实并不会有明显问题：
 
-### Scaffold 的 resize
+| ![](https://img.cdn.guoshuyu.cn/image-20260118173939510.png) | ![](https://img.cdn.guoshuyu.cn/image-20260118171041669.png) |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
 
+问题还是主要出现在类似 `showModalBottomSheet` 的场景，特别是在背景色透明的时候，虽然我们设置了 `backgroundColor: Colors.transparent` ，**但是在 Flutter 里，某些时候 UI 并不会“在键盘背后继续画” ** ，因为在 iOS 26 之前，Flutter（以及很多跨平台框架）都默认：
 
-`Scaffold` 是 Flutter 中最常用的页面脚手架，前面知道了通过 `resizeToAvoidBottomInset` ，我们可以配置在键盘弹起时页面的底部按键和 FloatButton 不会再被顶上来，其实这个行为是因为 `Scaffold` 的 `body` 大小被 `resize` 了。
+> **系统键盘 = 完全不透明的遮挡物**，所以 Flutter 的 pipeline 会认为键盘区域背后不需要特殊关注。
 
+| ![](https://img.cdn.guoshuyu.cn/image-20260118174226878.png) | ![](https://img.cdn.guoshuyu.cn/image-20260118174154571.png) |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
 
-那这个过程是怎么发生的呢？首先如下图所示，我们在 `Scaffold`  的源码里可以看到，当`resizeToAvoidBottomInset` 为 true 时，会使用 `mediaQuery.viewInsets.bottom` 作为 `minInsets` 的参数，也就是可以确定：**键盘弹起时的界面 `resize` 和 `mediaQuery.viewInsets.bottom` 有关系**。
+实际上类似同样的问题，在 RN 里也是存在，甚至对于 CMP 来说也是存在不一样的问题，所以对于 CMP 来说，才会有 [1.10 Interop views 新特性 Overlay ](https://juejin.cn/post/7594863660280496147)，用于支持 UIKit 的半透明/blur 可以采样到 Skia 的内容的实验性 API ：
 
-![](http://img.cdn.guoshuyu.cn/20210429_Flutter-KEY/image3)
+![](https://img.cdn.guoshuyu.cn/image-20260118182146053.png)
 
+![](https://img.cdn.guoshuyu.cn/image-20260118182308193.png)
 
-而如下图所示， `Scaffold` 内部的布局主要是靠 `CustomMultiChildLayout` ，`CustomMultiChildLayout` 的布局逻辑主要在 `MultiChildLayoutDelegate` 对象里。
+![](https://img.cdn.guoshuyu.cn/image-20260118181407179.png)
 
-前面获取到的 `minInsets`  会被用到 `_ScaffoldLayout` 这个 `MultiChildLayoutDelegate` 里面，也就是说  **`Scaffold` 的内部是通过 `CustomMultiChildLayout` 实现的布局，具体实现逻辑在  `_ScaffoldLayout` 这个 `Delegate` 里**。
+**所以这个问题实际上的本质不是圆角**，比如我把 `showModalBottomSheet` 背景改成红色，此时你可以看到键盘是可以采集到背景色的，甚至我把 `Container` 也改成红色，你也看不出来异常：
 
+| ![](https://img.cdn.guoshuyu.cn/image-20260118175158145.png) | ![](https://img.cdn.guoshuyu.cn/image-20260118175317990.png) |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
 
+**所以问题更多出现在透明色上**，随着  `showModalBottomSheet`  弹出并带有透明色的时候，由于 Flutter 认为被键盘这挡住的下层 Widget 并不需要绘制，所以导致系统键盘采集不到对应的像素点，从而出现了一开始的黑色背景。
 
-![](http://img.cdn.guoshuyu.cn/20210429_Flutter-KEY/image4)
+所以其实这个 Bug 如果想临时解决，只需要在  `Info.plist` 里配置 `UIDesignRequiresCompatibility = YES` 就可以了，只是此时 App UI 会是 iOS 18 的风格：
 
+| ![](https://img.cdn.guoshuyu.cn/image-20260118171041669.png) | ![](https://img.cdn.guoshuyu.cn/image-20260118171135503.png) |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
 
-> 关于 `CustomMultiChildLayout` 的详细使用介绍在之前的文章 [《详解自定义布局实战》](https://juejin.cn/post/6844903878509461518#heading-10) 里可以找到。
+如果再对比抖音和 Github App ，就可以看到 iOS 26 新键盘风格对于整体应用的风格影响还是挺大的，所以不少 App 目前会选择通过关闭适配拖延时间。
 
+| ![](https://img.cdn.guoshuyu.cn/e61e6647161b3dc5da7a983d67054c05.jpg) | ![](https://img.cdn.guoshuyu.cn/06dc77d24d88136742d677e1d254b1a6.jpg) |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
 
-接着看 `_ScaffoldLayout` ， 在  `_ScaffoldLayout`  进行布局时，会通过传入的
- `minInsets` 来决定 `body` 显示的 `contentBottom` ， 所以可以看到**事实上传入的 `minInsets` 改变的是 `Scaffold` 布局的 bottom 位置**。
- 
-![](http://img.cdn.guoshuyu.cn/20210429_Flutter-KEY/image5)
+那为什么会说，这个 Bug 会导致整个底层生态的重构？**因为 iOS 26 改变了“系统键盘会完全遮挡 App 内容”这一长期不变的底层假设**，而 Flutter 的渲染 / 布局 / Insets / 事件系统，几乎全都建立在旧假设之上，这套逻辑几乎渗透在：
 
+- `RenderObject` 的 `layout`
+- `Scaffold` / `BottomSheet` / `Navigator`
+- `MediaQuery`
+- `TextInputPlugin`
+- Engine 中的 view hierarchy 
+- ···
 
-> 上图代码中使用的 `_ScaffoldSlot.body` 这个枚举其实是作为 `LayoutId` 的值，`MultiChildLayoutDelegate` 在布局时可以通过 `LayoutId` 获取到对应 child 进行布局操作，详细可见： [《详解自定义布局实战》](https://juejin.cn/post/6844903878509461518#heading-10) 
+![](https://img.cdn.guoshuyu.cn/image-20260118180129255.png)
 
-![](http://img.cdn.guoshuyu.cn/20210429_Flutter-KEY/image6)
+也就是如果想完全适配这个新场景（多层嵌套下还提供键盘场景的透明支持），一旦需要完全支持“键盘下内容需要绘制”，就要系统性重构多个核心层，例如
 
+：
 
-那么 `Scaffold` 的 `body` 是什么呢？ 如上图代码所示，其实  `Scaffold`  的 `body` 是一个叫 `_BodyBuilder` 的对象，而这个  `_BodyBuilder` 内部其实是一个 `LayoutBuilder`。（注意，在 `widget.appbar` 不为 `null` 时，会 `removeTopPadding`）
+### Framework 层（Dart）
 
-所以如下图代码所示 `body` 在添加时，**它父级的`MediaQueryData` 会被重载，特别是 `removeTopPadding` 会被清空，`viewInsets.bottom` 也是会被重置**。
+- `MediaQuery.viewInsets`
+  - 现在代表“不可见区域”
+  - 未来要不要拆成多个：`coveredInsets` 、`obscuredInsets` 、`visualInsets`
+- Scaffold / BottomSheet
+  - 是否仍然自动 resize？
+  - 还是只做布局、不做裁剪？
+- Clip 行为
+  - 现在大量 widget 默认不 clip
 
-![](http://img.cdn.guoshuyu.cn/20210429_Flutter-KEY/image7)
+### Engine 层（iOS embedder）
 
+- FlutterView / UIView hierarchy
+- CALayer 合成顺序
+- 系统 keyboard window vs Flutter window
+- 是否需要：
+  - 在被遮挡区域继续 raster
+  - 或改变 backing store 策略
 
-最后如下代码所示，`_BodyBuilder` 的 `LayoutBuilder` 里会获取到一个 `top` 和 `bottom` 的参数，这两个参数都通过前面在  `_ScaffoldLayout` 布局时传入的 `constraints` 去判断得到，最终 `copyWith` 得到新的 `MediaQuery` 。
+### 输入系统 & Hit Test
 
-![](http://img.cdn.guoshuyu.cn/20210429_Flutter-KEY/image8)
+- 键盘下的 widget：
+  - 画出来了
+  - 但不能响应触摸
+- Flutter 目前的 hit-test 假设：
+  - “看得见 = 可点”
 
+### 插件 & 三方生态
 
-这里就涉及到一个有意思的点，在 `_BodyBuilder` 里的通过 `copyWith` 得到新的 `MediaQuery` 会影响什么呢？如下代码所示，这里用一个简单的例子来解释下。
+- 各种：
+  - bottom sheet 插件
+  - keyboard avoiding 插件
+  - 聊天 UI
+- 各种涉及“手搓” viewInsets 的场景
 
+**所以这个“语义场景”如果发生比变化，那么涉及的将是大量底层改动，甚至一些性能指标都会需要调整，从长远来看，这还会是一个 iOS 平台特有的差异化适配场景，并且引入大量 bread change**。
 
-```dart
-class MainWidget extends StatelessWidget {
-  final TextEditingController controller =
-      new TextEditingController(text: "init Text");
-  @override
-  Widget build(BuildContext context) {
-    print("Main MediaQuery padding: ${MediaQuery.of(context).padding} viewInsets.bottom: ${MediaQuery.of(context).viewInsets.bottom}");
-    return Scaffold(
-      appBar: AppBar(
-        title: new Text("MainWidget"),
-      ),
-      extendBody: true,
-      body: Column(
-        children: [
-          new Expanded(child: InkWell(onTap: (){
-            FocusScope.of(context).requestFocus(FocusNode());
-          })),
-          ///增加 CustomWidget
-          CustomWidget(),
-          new Container(
-            margin: EdgeInsets.all(10),
-            child: new Center(
-              child: new TextField(
-                controller: controller,
-              ),
-            ),
-          ),
-          new Spacer(),
-        ],
-      ),
-    );
-  }
-}
-class CustomWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    print("Custom MediaQuery padding: ${MediaQuery.of(context).padding} viewInsets.bottom: ${MediaQuery.of(context).viewInsets.bottom}\n  \n");
-    return Container();
-  }
-}
+# 最后
 
-```
+最后总结下，**正常大家使用输入框输入文本内容不会有什么问题**，甚至如果你用 Dialog 场景也不会有什么问题，甚至你看下方最后一张图片，在 dialog 下的键盘依然可以正常透视工作：
 
-如上代码所示：
+| ![](https://img.cdn.guoshuyu.cn/image-20260118183109671.png) | ![](https://img.cdn.guoshuyu.cn/ezgif-855b2c1cb5f1e709.gif) | ![](https://img.cdn.guoshuyu.cn/image-20260118184027043.png) |
+| ------------------------------------------------------------ | ----------------------------------------------------------- | ------------------------------------------------------------ |
 
-- 代码中定义了 `MainWidget` 和 `CustomWidget` 两个控件；
-- `MainWidget`  里使用了 `Scaffold` ，并且 `CustomWidget` 在 `MainWidget`  里被使用；
-- 分别在这两个 Widget 的`build` 方法里打印出对应的 `MediaQuery.of(context).padding` 和  `MediaQuery.of(context).viewInsets.bottom` 的值；
+所以问题主要还是存在于  `BottomSheet` 这种场景，因为 `BottomSheet` 默认行为是认为底部对齐，高度有限，所以对于 `BottomSheet` 会认为底部高度区域在键盘下不渲染，所以导致最后采集不到像素出现黑色。
 
-如下图所示，在键盘弹起和不弹起时可以看到 `padding` 值是不同的，而 `viewInsets.bottom` 都为 0。
- 
-![](http://img.cdn.guoshuyu.cn/20210429_Flutter-KEY/image9)
+**针对问题其实可以选择配置 `UIDesignRequiresCompatibility = YES`  来解决，或者替换为 Dialog 来绕过场景**，但是如果要等官方修复这个场景，可能会需要等待评估是否真的有必要大规模底层改动。
 
-为什么  `padding` 值的 `top` 会不一致，**自然是因为 `CustomWidget` 和 `MainWidget`获取到的 `MediaQuery.of(context)` 对象不是同一个数据。**
+![](https://img.cdn.guoshuyu.cn/image-20260118193903692.png)
 
+> 从我的角度看，这完全没必要，毕竟真这么修改，带来的就是生态的大量 break change。
 
-- `MainWidget` 使用的 `MediaQuery.of(context)` 得到的 `MediaQueryData` 是上级往下传递的，里面**包含了 `top:47` 的状态栏高度和 `bottom:34` 的底部安全区域高度**。
 
 
-- `CustomWidget`  里面 `MediaQuery.of(context)` 得到的 `MediaQueryData` ，自然就是前面分析过的 `_BodyBuilder` 里的通过 `copyWith` 得到新的 `MediaQuery`，所以  `CustomWidget`  得到的 `MediaQueryData` 其实**在 `Scaffold` 内部已经被重置了，所以它的 `top:0` ，获取不到状态栏高度**。
+# 参考链接
 
 
-> 事实上这就是大家为什么有时候 **`MediaQuery.of( context)` 可以获取到状态栏高度，有时候又获取不到的原因**，因为你的 `context` 获取到的是 `Scaffold` 之外的 `MediaQueryData`， 还是 `Scaffold`  内被重载过的 `MediaQueryData`，自然会得到不一样的结果。
 
-
-如下图所示，键盘弹起因为被 resize 了，所以界面的 `bottom` 安全区域变成了 0 ，而
-
-- 在 `MainWidget` 中可以获取到 `viewInsets.bottom` 也就是键盘的高度；
-- 在 `CustomWidget` 获取不到 `viewInsets.bottom` ，因为在 `Scaffold` 内被重载清除了。
-
-
-![](http://img.cdn.guoshuyu.cn/20210429_Flutter-KEY/image10)
-
-
-总结一下：**`Scaffold` 的 `resizeToAvoidBottomInset` 会通过 `MediaQueryData` 影响 body 的布局，同时在 `Scaffold` 内 `MediaQuery` 会被重载，所以使用的 `context` 位置不同，获取到的 `MediaQueryData`  也不同，如果需要获取键盘高度和状态栏高度的话，最好使用  `Scaffold`  外的  `context` 。** 
-
-
-![](http://img.cdn.guoshuyu.cn/20210429_Flutter-KEY/image11)
-
-
-> 这里讲了 `MediaQuery`  和 `MediaQueryData` 的内容，为什么 `MediaQuery` 通过嵌套就可以重载？为什么通过 `context` 可以往上获取到离 `context` 最近的  `MediaQueryData`？因为 `MediaQuery` 是一个 `InheritedWidget` : [《全面理解State》](https://juejin.cn/post/6844903866706706439#heading-5) 。
-
-
-
-### 键盘如何影响 Scaffold 
-
-
-前面我们聊了 `Scaffold` 的 `resizeToAvoidBottomInset` 会通过 `MediaQueryData` 影响 body 的布局，那是怎么影响的呢？
-
-
-事实上这得从 `MaterialApp` 说起，在  `MaterialApp`  内部的深处嵌套着一个叫 `_MediaQueryFromWindow` 的 Widget ，它在内部通过 ` WidgetsBinding.instance.addObserver` 对 App 的各种系统事件做了监听，并且对应都执行了 `setState` 。
-
-所以如下源码所示，当键盘弹出时， `build` 方法会被执行， 而 `MediaQueryData` 就会通过`MediaQueryData.fromWindow` 获取到新的 `MediaQueryData` 数据。
-
-
-```dart
- @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addObserver(this);
-  }
-
-  // ACCESSIBILITY
-
-  @override
-  void didChangeAccessibilityFeatures() {
-    setState(() { });
-  }
-
-  // METRICS
-
-  @override
-  void didChangeMetrics() {
-    setState(() {});
-  }
-
-  @override
-  void didChangeTextScaleFactor() {
-    setState(() { });
-  }
-
-  // RENDERING
-  @override
-  void didChangePlatformBrightness() {
-    setState(() {});
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    MediaQueryData data = MediaQueryData.fromWindow(WidgetsBinding.instance.window);
-    if (!kReleaseMode) {
-      data = data.copyWith(platformBrightness: debugBrightnessOverride);
-    }
-    return MediaQuery(
-      data: data,
-      child: widget.child,
-    );
-  }
-
-  @override
-  void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
-    super.dispose();
-  }
-```
-
-
-
-举个例子，如下图所示，从 Android 的 Java 层弹出键盘开始，会把改变后的视图信息传递给 C++ 层，最后回调到 Dart 层，从而触发 `MaterialApp` 内的 `didChangeMetrics` 方法执行 ` setState(() {});` ，进而让  `_MediaQueryFromWindow` 内的 `build` 更新了 `MediaQueryData` ，最终改变了 `Scaffod` 的 `body` 大小。
-
-![](http://img.cdn.guoshuyu.cn/20210429_Flutter-KEY/image12)
-
-那么到这里，你知道如何在 Flutter 里正确地去获取键盘的高度了吧？
-
-### 最后
-
-从一个简单的 `resizeToAvoidBottomInset` 去拓展到 `Scaffod` 的内部布局和 `MediaQueryData` 与键盘的关系，其实这也是学习框架过程中很好的知识延伸，通过特定的问题去深入理解框架的实现原理，最后再把知识点和问题关联起来，这样问题在此之后便不再是问题，因为入脑了～
-
-![](http://img.cdn.guoshuyu.cn/20210429_Flutter-KEY/image13)
-
-
+https://github.com/flutter/flutter/issues/179482
