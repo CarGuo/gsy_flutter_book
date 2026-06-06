@@ -5,12 +5,12 @@
 //   2. Spin up a static HTTP server on the dist/ directory.
 //   3. Use Puppeteer to load each URL and print it to a per-page PDF buffer.
 //   4. Merge all PDF buffers into one with pdf-lib.
-//   5. Write to docs/.vitepress/dist/gsy-flutter-book.pdf
+//   5. Write to artifacts/gsy-flutter-book.pdf
 //
-// Designed to run inside GitHub Actions (ubuntu-latest) where chromium can be
-// installed by puppeteer's installer.
+// Designed to run inside GitHub Actions (ubuntu-latest) where chromium and
+// fonts-noto-cjk are pre-installed by the workflow.
 //
-// Run: node scripts/build-pdf.mjs
+// Run: node scripts/build-pdf.mjs [--limit=N]
 
 import { createServer } from 'node:http'
 import { readFile, writeFile, stat, mkdir } from 'node:fs/promises'
@@ -22,8 +22,6 @@ import { PDFDocument } from 'pdf-lib'
 const DIST = resolve('docs/.vitepress/dist')
 const OUT  = resolve('artifacts/gsy-flutter-book.pdf')
 const PORT = 4173
-// Must match vitepress config.mts `base`. Stripped from incoming request paths
-// so the dist root maps to `/<base>/...` URLs.
 const BASE = '/home/wx/'
 
 const MIME = {
@@ -48,7 +46,6 @@ function startServer() {
   const server = createServer(async (req, res) => {
     try {
       let urlPath = decodeURIComponent(req.url.split('?')[0])
-      // Strip the configured site base so dist files resolve correctly.
       if (BASE !== '/' && urlPath.startsWith(BASE)) {
         urlPath = '/' + urlPath.slice(BASE.length)
       } else if (BASE !== '/' && urlPath === BASE.slice(0, -1)) {
@@ -60,7 +57,6 @@ function startServer() {
         const s = await stat(fp)
         if (s.isDirectory()) fp = join(fp, 'index.html')
       } catch {
-        // cleanUrls fallback: /foo -> /foo.html
         const candidate = fp + '.html'
         try { await stat(candidate); fp = candidate } catch {}
       }
@@ -76,20 +72,92 @@ function startServer() {
 }
 
 async function loadOrder() {
-  const modUrl = pathToFileURL(resolve('docs/.vitepress/sidebar.generated.mts')).href
-  // VitePress sidebar is .mts; use Node's experimental loader OR strip types manually.
-  // Simpler approach: read as text, regex the link strings in order.
   const txt = await readFile('docs/.vitepress/sidebar.generated.mts', 'utf8')
   const links = []
   const re = /"link"\s*:\s*"([^"]+)"/g
   let m
   while ((m = re.exec(txt))) links.push(m[1])
-  // De-duplicate while preserving order
   return [...new Set(links)]
 }
 
+// CSS injected before printing. Keeps VitePress doc layout intact, only hides
+// site chrome that does not belong in a print artifact.
+const PRINT_CSS = `
+  @page { size: A4; margin: 16mm 14mm; }
+
+  /* Hide site chrome only */
+  .VPNav, .VPLocalNav, .VPSidebar, .VPDocFooter, .VPFooter,
+  .VPDocAside, .VPDocAsideOutline, .VPBackdrop,
+  .pf-launcher, .pf-search-trigger, [data-pagefind-ignore],
+  .site-stats, [id^="busuanzi_container_"] { display: none !important; }
+
+  html, body { background: #fff !important; }
+
+  /* Force a CJK-capable font stack so Linux runners with fonts-noto-cjk render
+     Chinese glyphs correctly even if VitePress theme variables resolve to a
+     latin-only family. macOS / Windows fall back to their native CJK fonts. */
+  html, body, .vp-doc, .VPHome, .VPHero, .VPFeatures, .VPFeature {
+    font-family:
+      -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
+      "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", "WenQuanYi Micro Hei",
+      "Helvetica Neue", Arial, sans-serif !important;
+  }
+  .vp-doc code, .vp-doc pre, code {
+    font-family:
+      ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+      "Liberation Mono", "Noto Sans Mono CJK SC", "Noto Sans Mono", monospace !important;
+  }
+
+  /* Let the doc occupy the full printable width without VP's fixed sidebar offset */
+  .VPContent { padding: 0 !important; }
+  .VPDoc { padding: 0 !important; }
+  .VPDoc .container, .VPDoc .content, .VPDoc .content-container { max-width: none !important; margin: 0 !important; padding: 0 !important; }
+  .VPDoc .aside { display: none !important; }
+
+  /* Typography tuned for A4 print, body 11pt */
+  .vp-doc { font-size: 11pt; line-height: 1.7; color: #222; }
+  .vp-doc h1 { font-size: 22pt; margin: 0 0 0.6em; page-break-before: auto; page-break-after: avoid; }
+  .vp-doc h2 { font-size: 16pt; margin: 1.2em 0 0.5em; page-break-after: avoid; }
+  .vp-doc h3 { font-size: 13pt; margin: 1em 0 0.4em; page-break-after: avoid; }
+  .vp-doc p, .vp-doc li { orphans: 3; widows: 3; }
+  .vp-doc pre { font-size: 9pt; line-height: 1.45; page-break-inside: avoid; white-space: pre-wrap; word-break: break-word; }
+  .vp-doc code { font-size: 9.5pt; }
+  .vp-doc img { max-width: 100% !important; height: auto !important; page-break-inside: avoid; }
+  .vp-doc table { font-size: 10pt; page-break-inside: avoid; }
+  .vp-doc blockquote { page-break-inside: avoid; }
+
+  /* Home page (hero + features) kept as-is but bounded to printable area */
+  .VPHome { padding: 0 !important; }
+  .VPHero { padding: 12mm 0 8mm !important; }
+  .VPHero .container { flex-direction: column !important; text-align: center !important; }
+  .VPHero .main { order: 1; }
+  .VPHero .image { order: 2; margin-top: 8mm; }
+  .VPHero .image-container { width: 220px !important; height: 220px !important; }
+  .VPHero .image-bg { width: 220px !important; height: 220px !important; }
+  .VPHero .image-src { max-width: 220px !important; max-height: 220px !important; }
+
+  /* Force 2-column grid for features regardless of viewport-class widths */
+  .VPFeatures { padding: 0 !important; }
+  .VPFeatures .container { max-width: none !important; padding: 0 !important; }
+  .VPFeatures .items { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 6mm !important; margin: 0 !important; }
+  .VPFeatures .items .item { width: 100% !important; padding: 0 !important; }
+  .VPFeature { page-break-inside: avoid; height: 100% !important; }
+`
+
+const HEADER_TEMPLATE = `<div style="font-size:8pt;color:#888;width:100%;padding:0 14mm;display:flex;justify-content:space-between;">
+  <span>GSY Flutter Book</span>
+  <span class="title"></span>
+</div>`
+
+const FOOTER_TEMPLATE = `<div style="font-size:8pt;color:#888;width:100%;padding:0 14mm;text-align:center;">
+  <span class="pageNumber"></span> / <span class="totalPages"></span>
+</div>`
+
 async function main() {
-  const links = await loadOrder()
+  const sidebarLinks = await loadOrder()
+  // Always lead with the site home so PDF opens with the book cover.
+  const links = ['/', ...sidebarLinks]
+
   const limitArg = process.argv.find(a => a.startsWith('--limit='))
   const limit = limitArg ? parseInt(limitArg.split('=')[1], 10) : links.length
   const subset = links.slice(0, limit)
@@ -100,34 +168,37 @@ async function main() {
 
   const browser = await puppeteer.launch({
     headless: 'new',
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    args: ['--no-sandbox', '--disable-setuid-sandbox', '--font-render-hinting=none'],
   })
   const page = await browser.newPage()
   await page.emulateMediaType('print')
+  await page.setViewport({ width: 1240, height: 1754, deviceScaleFactor: 1 })
 
   const merged = await PDFDocument.create()
 
   let i = 0
   for (const link of subset) {
     i++
-    // sidebar links are like "/guide/Flutter-1"; prepend BASE for the live URL.
-    const urlPath = (BASE !== '/' ? BASE.replace(/\/$/, '') : '') + link
+    const cleanLink = link === '/' ? '/' : link
+    const urlPath = (BASE !== '/' ? BASE.replace(/\/$/, '') : '') + cleanLink
     const url = `http://127.0.0.1:${PORT}${urlPath}`
     process.stdout.write(`[pdf] (${i}/${subset.length}) ${urlPath} ... `)
     try {
       await page.goto(url, { waitUntil: 'networkidle0', timeout: 60_000 })
-      // Hide nav/sidebar/footer for cleaner print
-      await page.addStyleTag({ content: `
-        .VPNav, .VPSidebar, .VPLocalNav, .VPFooter, .VPDocFooter,
-        .pf-search-trigger, [data-pagefind-ignore]{ display:none !important; }
-        .VPContent, .VPDoc, .VPDoc .container { padding: 0 !important; margin: 0 !important; }
-        body { background: #fff !important; }
-      `})
+      await page.addStyleTag({ content: PRINT_CSS })
+      // Wait for webfonts to load so CJK glyphs render with the embedded font.
+      await page.evaluate(() => document.fonts && document.fonts.ready)
+      // Tiny settle delay for VitePress hydration after the style tag mutation.
+      await new Promise(r => setTimeout(r, 250))
+
       const buf = await page.pdf({
         format: 'A4',
-        margin: { top: '12mm', bottom: '12mm', left: '12mm', right: '12mm' },
-        printBackground: false,
-        preferCSSPageSize: false,
+        margin: { top: '16mm', bottom: '16mm', left: '14mm', right: '14mm' },
+        printBackground: true,
+        preferCSSPageSize: true,
+        displayHeaderFooter: true,
+        headerTemplate: HEADER_TEMPLATE,
+        footerTemplate: FOOTER_TEMPLATE,
       })
       const sub = await PDFDocument.load(buf)
       const copied = await merged.copyPages(sub, sub.getPageIndices())

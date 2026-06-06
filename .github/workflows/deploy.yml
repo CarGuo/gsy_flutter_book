@@ -40,6 +40,14 @@ jobs:
       - name: Install Chrome for Puppeteer
         run: pnpm exec puppeteer browsers install chrome
 
+      - name: Install CJK fonts for PDF rendering
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-noto-cjk fonts-noto-cjk-extra fonts-noto-color-emoji
+          fc-cache -f
+          echo "--- installed CJK fonts ---"
+          fc-list :lang=zh | head -n 20 || true
+
       - name: Run migration (SUMMARY.md -> docs/)
         run: pnpm run migrate
 
