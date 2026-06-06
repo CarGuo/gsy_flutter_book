@@ -27,7 +27,7 @@ const router = useRouter()
 
 let pagefind: any = null
 let pagefindLoading: Promise<any> | null = null
-let debounceTimer: number | null = null
+let searchSeq = 0
 
 async function loadPagefind() {
   if (pagefind) return pagefind
@@ -55,23 +55,38 @@ async function loadPagefind() {
 }
 
 async function runSearch(q: string) {
+  const mySeq = ++searchSeq
   if (!q.trim()) {
     results.value = []
     error.value = ''
+    loading.value = false
     return
   }
   loading.value = true
   error.value = ''
   try {
     const pf = await loadPagefind()
-    const search = await pf.search(q)
+    if (mySeq !== searchSeq) return
+    const searchFn = typeof pf.debouncedSearch === 'function'
+      ? pf.debouncedSearch.bind(pf)
+      : pf.search.bind(pf)
+    const search = await searchFn(q, 200)
+    if (mySeq !== searchSeq) return
     if (!search) {
       results.value = []
+      loading.value = false
       return
     }
     const top = search.results.slice(0, 20)
-    const data = await Promise.all(top.map((r: any) => r.data()))
-    results.value = data.map((d: any) => ({
+    if (top.length === 0) {
+      results.value = []
+      loading.value = false
+      return
+    }
+    const FIRST_BATCH = Math.min(5, top.length)
+    const firstData = await Promise.all(top.slice(0, FIRST_BATCH).map((r: any) => r.data()))
+    if (mySeq !== searchSeq) return
+    const mapItem = (d: any) => ({
       url: d.url,
       title: d.meta?.title || d.url,
       excerpt: d.excerpt,
@@ -80,20 +95,27 @@ async function runSearch(q: string) {
         title: s.title,
         excerpt: s.excerpt
       }))
-    }))
+    })
+    results.value = firstData.map(mapItem)
     activeIndex.value = 0
+    loading.value = false
+    if (top.length > FIRST_BATCH) {
+      Promise.all(top.slice(FIRST_BATCH).map((r: any) => r.data())).then((rest: any[]) => {
+        if (mySeq !== searchSeq) return
+        results.value = [...results.value, ...rest.map(mapItem)]
+      }).catch(() => { /* ignore tail errors */ })
+    }
   } catch (e: any) {
+    if (mySeq !== searchSeq) return
     error.value = '搜索初始化失败：请确认已执行 build（dev 模式无索引）。'
     console.warn('[Pagefind]', e)
     results.value = []
-  } finally {
     loading.value = false
   }
 }
 
 watch(query, (q) => {
-  if (debounceTimer) window.clearTimeout(debounceTimer)
-  debounceTimer = window.setTimeout(() => runSearch(q), 180) as unknown as number
+  runSearch(q)
 })
 
 function openModal() {
@@ -167,7 +189,7 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('keydown', onKeyDown)
   window.removeEventListener('pagefind-open', onLauncherEvent as EventListener)
-  if (debounceTimer) window.clearTimeout(debounceTimer)
+  searchSeq++
 })
 </script>
 

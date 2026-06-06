@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import DefaultTheme from 'vitepress/theme'
 import PagefindSearch from './PagefindSearch.vue'
 
@@ -8,6 +9,16 @@ function openSearch() {
   if (typeof window === 'undefined') return
   window.dispatchEvent(new CustomEvent('pagefind-open'))
 }
+
+onMounted(() => {
+  if (typeof document === 'undefined') return
+  if (document.getElementById('busuanzi-js')) return
+  const s = document.createElement('script')
+  s.id = 'busuanzi-js'
+  s.async = true
+  s.src = 'https://busuanzi.9420.ltd/js'
+  document.head.appendChild(s)
+})
 </script>
 
 <template>
@@ -31,6 +42,23 @@ function openSearch() {
     </template>
     <template #layout-bottom>
       <PagefindSearch />
+      <div class="site-stats" aria-label="访问统计">
+        <span class="site-stats-item">
+          本站访客
+          <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv">--</span>
+          </span>
+          人次
+        </span>
+        <span class="site-stats-sep">·</span>
+        <span class="site-stats-item">
+          总访问量
+          <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv">--</span>
+          </span>
+          次
+        </span>
+      </div>
     </template>
   </Layout>
 </template>
@@ -74,5 +102,23 @@ function openSearch() {
 @media (min-width: 768px) {
   .pf-launcher-text { display: inline; }
   .pf-launcher-kbd { display: inline-flex; }
+}
+.site-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 10px 16px 18px;
+  font-size: 12px;
+  color: var(--vp-c-text-3, #888);
+  border-top: 1px solid var(--vp-c-divider, #e2e2e3);
+  background: var(--vp-c-bg, #fff);
+}
+.site-stats-item {
+  white-space: nowrap;
+}
+.site-stats-sep {
+  opacity: 0.6;
 }
 </style>
