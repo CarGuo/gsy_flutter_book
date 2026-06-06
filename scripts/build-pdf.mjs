@@ -160,7 +160,10 @@ async function main() {
 
   const limitArg = process.argv.find(a => a.startsWith('--limit='))
   const limit = limitArg ? parseInt(limitArg.split('=')[1], 10) : links.length
-  const subset = links.slice(0, limit)
+  const onlyArg = process.argv.find(a => a.startsWith('--only='))
+  const subset = onlyArg
+    ? onlyArg.split('=')[1].split(',').map(s => s.trim()).filter(Boolean)
+    : links.slice(0, limit)
   console.log(`[pdf] ${subset.length}/${links.length} pages to render`)
 
   const server = await startServer()
@@ -173,6 +176,26 @@ async function main() {
   const page = await browser.newPage()
   await page.emulateMediaType('print')
   await page.setViewport({ width: 1240, height: 1754, deviceScaleFactor: 1 })
+
+  // Rewrite Qiniu-hosted images to use imageView2 server-side resize+recompress.
+  // 2189 images on img.cdn.guoshuyu.cn average ~1MB each; with /2/w/1400/q/75/format/jpg
+  // they come back ~50KB each, shrinking the merged PDF roughly 20x without any local
+  // CPU work and without slowing down PDF generation.
+  await page.setRequestInterception(true)
+  const QINIU_HOST = /^https?:\/\/img\.cdn\.guoshuyu\.cn\//i
+  const IMG_EXT = /\.(png|jpe?g|webp|gif)(\?|$)/i
+  let rewriteCount = 0
+  page.on('request', req => {
+    const url = req.url()
+    if (QINIU_HOST.test(url) && IMG_EXT.test(url) && !url.includes('imageView2')) {
+      const sep = url.includes('?') ? '&' : '?'
+      const rewritten = `${url}${sep}imageView2/2/w/1400/q/75/format/jpg`
+      rewriteCount++
+      req.continue({ url: rewritten })
+    } else {
+      req.continue()
+    }
+  })
 
   const merged = await PDFDocument.create()
 
@@ -213,6 +236,7 @@ async function main() {
   await mkdir(dirname(OUT), { recursive: true })
   await writeFile(OUT, out)
   console.log(`[pdf] wrote ${OUT} (${(out.byteLength / 1024 / 1024).toFixed(2)} MB)`)
+  console.log(`[pdf] rewrote ${rewriteCount} Qiniu image URLs via imageView2`)
 
   await browser.close()
   server.close()
