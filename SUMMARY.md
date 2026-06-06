@@ -47,6 +47,7 @@
   - [Flutter 3.32 发布啦，快来看有什么更新吧](Flutter-332.md)
   - [Flutter 3.35 发布啦，快来看有什么更新吧](Flutter-335.md)
   - [Flutter 3.38 发布啦，快来看有什么更新吧](Flutter-338.md)
+  - [Flutter 3.44 发布啦，超级大版本更新！！！](Flutter344.md)
   - **Dart**
   - [Dart 2.12 发布，稳定空安全声明和FFI版本，Dart 未来的计划](Dart-212.md)
   - [Dart 2.14 发布，新增语言特性和共享标准 lint](Dart-214.md)
@@ -272,6 +273,10 @@
   * [Flutter 凉了没？Flutter 2026 的未来行程和规划，一些有趣的变化](Flutter-2026-interest.md)
   * [Flutter  PC 多窗口最新进展，底层原生窗口句柄支持已合并](Flutter-PC-Multi-2.md)
   * [WasmGC 是什么？为什么它对 Dart 和 Kotlin 在 Web 领域很重要？](WasmGC-Dart-Koltin.md)
+  * [Flutter 最好的 AI 自动化测试工具：Patrol](Flutter-Patrol.md)
+  * [Dart   大更新，新增语法糖和各种能力，真的难得了](Dart%203.13-PrimaryConstructors.md)
+  * [Flutter GenUI 0.9 和 A2UI 0.9 发布，全动动态 UI 支持，AI 在 App 里直出界面](a2ui_flutter_genui_complete.md)
+  * [Flutter  3.44 发布前夕，官方宣布 SwiftPM 将完全取代 CocoaPods](Flutter-SPM-CocoaPods.md)
 * [Flutter 工程化选择](GCH.md)
   * [Flutter 工程化框架选择——搞定 Flutter 动画](Z1.md)
   * [Flutter 工程化框架选择 — 搞定 UI 生产力](Z3.md)

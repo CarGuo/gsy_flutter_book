@@ -419,3 +419,11 @@
 * [Flutter  PC 多窗口最新进展，底层原生窗口句柄支持已合并](Flutter-PC-Multi-2.md)
 
 * [WasmGC 是什么？为什么它对 Dart 和 Kotlin 在 Web 领域很重要？](WasmGC-Dart-Koltin.md)
+
+* [Flutter 最好的 AI 自动化测试工具：Patrol](Flutter-Patrol.md)
+
+* [Dart   大更新，新增语法糖和各种能力，真的难得了](Dart%203.13-PrimaryConstructors.md)
+
+* [Flutter GenUI 0.9 和 A2UI 0.9 发布，全动动态 UI 支持，AI 在 App 里直出界面](a2ui_flutter_genui_complete.md)
+
+* [Flutter  3.44 发布前夕，官方宣布 SwiftPM 将完全取代 CocoaPods](Flutter-SPM-CocoaPods.md)
