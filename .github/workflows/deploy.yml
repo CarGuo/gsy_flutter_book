@@ -107,10 +107,23 @@ jobs:
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
           DEPLOY_PORT: ${{ secrets.DEPLOY_SSH_PORT || 22 }}
         run: |
-          rsync -avz --delete \
-            -e "ssh -p ${DEPLOY_PORT} -o StrictHostKeyChecking=yes" \
-            docs/.vitepress/dist/ \
-            "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/"
+          set +e
+          for attempt in 1 2 3 4 5; do
+            echo "=== rsync attempt $attempt ==="
+            rsync -avz --delete \
+              -e "ssh -p ${DEPLOY_PORT} -o StrictHostKeyChecking=yes -o ConnectTimeout=15 -o ServerAliveInterval=15 -o ServerAliveCountMax=4" \
+              docs/.vitepress/dist/ \
+              "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/"
+            rc=$?
+            if [ $rc -eq 0 ]; then
+              echo "rsync succeeded on attempt $attempt"
+              exit 0
+            fi
+            echo "rsync failed with code $rc, sleeping before retry..."
+            sleep $((attempt * 20))
+          done
+          echo "::error::rsync failed after 5 attempts"
+          exit 1
 
       - name: Create GitHub Release with PDF
         if: startsWith(github.ref, 'refs/tags/')
