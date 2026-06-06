@@ -422,8 +422,14 @@
 
 * [Flutter 最好的 AI 自动化测试工具：Patrol](Flutter-Patrol.md)
 
-* [Dart   大更新，新增语法糖和各种能力，真的难得了](Dart%203.13-PrimaryConstructors.md)
-
 * [Flutter GenUI 0.9 和 A2UI 0.9 发布，全动动态 UI 支持，AI 在 App 里直出界面](a2ui_flutter_genui_complete.md)
 
 * [Flutter  3.44 发布前夕，官方宣布 SwiftPM 将完全取代 CocoaPods](Flutter-SPM-CocoaPods.md)
+
+* [终于，Flutter 修复  Android  中文字体异常，但是很草台，不知怎么吐槽](Flutter_Android_Font_Skia_Article.md)
+
+* [Flutter 多窗口最近进度，为什么 3.44  还不落地](Flutter-mw.md)
+
+* [经典，Flutter  iOS 又修复了一个构建问题，还是很抽象](Flutter-iOS-rt.md)
+
+* [实用性 Max ，新  Flutter  &  Dart Agent  Skills  深度解读](Flutter%26DartAgentSkills.md)
