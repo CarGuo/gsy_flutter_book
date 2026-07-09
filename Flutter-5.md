@@ -83,19 +83,22 @@ abstract class Base {
   }
 }
 
-class A extends Base {
+mixin A on Base {
+  @override
   a() {
     print("A.a()");
     super.a();
   }
 
+  @override
   b() {
     print("A.b()");
     super.b();
   }
 }
 
-class A2 extends Base {
+mixin A2 on Base {
+  @override
   a() {
     print("A2.a()");
     super.a();
@@ -103,16 +106,19 @@ class A2 extends Base {
 }
 
 class B extends Base {
+  @override
   a() {
     print("B.a()");
     super.a();
   }
 
+  @override
   b() {
     print("B.b()");
     super.b();
   }
 
+  @override
   c() {
     print("B.c()");
     super.c();
