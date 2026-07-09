@@ -201,7 +201,7 @@ iOS 的打包和审核流程相对复杂点，打包 iOS 首先你需要有*开�
 * Github ： https://github.com/CarGuo
 * **开源 Flutter 完整项目：https://github.com/CarGuo/GSYGithubAppFlutter**
 * **开源 Flutter 多案例学习型项目: https://github.com/CarGuo/GSYFlutterDemo**
-* **开源 Fluttre 实战电子书项目：https://github.com/CarGuo/GSYFlutterBook**
+* **开源 Flutter 实战电子书项目：https://github.com/CarGuo/GSYFlutterBook**
 * 开源 React Native 项目：https://github.com/CarGuo/GSYGithubApp
 
 
