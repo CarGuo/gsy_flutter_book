@@ -433,3 +433,17 @@
 * [经典，Flutter  iOS 又修复了一个构建问题，还是很抽象](Flutter-iOS-rt.md)
 
 * [实用性 Max ，新  Flutter  &  Dart Agent  Skills  深度解读](Flutter%26DartAgentSkills.md)
+
+* [Flutter material/cupertino 解耦最新进展，已经在做新样式了](Flutter-Material-Cupertino-Decoupling.md)
+
+* [新开源 Flutter 热更新？flutter_patcher 可以简单了解下](Flutter-Patcher.md)
+
+* [Flutter 开发怎么做 Agent ？从工程实战详细给你解读下](Flutter-Genkit-Agent.md)
+
+* [flutter_agent_lens 用 MCP 服务，将 Flutter DevTools 暴露给 AI](Flutter-Agent-Lens.md)
+
+* [Flutter 又为 AI 时代添砖加瓦：全新 ComponentLibrary 提议](Flutter-ComponentLibrary.md)
+
+* [由于 iOS 26 的键盘变化，Flutter 又要重构键盘区域逻辑](Flutter-iOS26-Keyboard-Rebuild.md)
+
+* [Flutter Patchwork，不用 Fork 改依赖包源码的第三方工具](Flutter-Patchwork.md)
