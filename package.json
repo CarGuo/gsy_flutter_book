@@ -25,7 +25,7 @@
     "vue": "3.5.33",
     "pagefind": "1.5.2",
     "sass": "1.99.0",
-    "sharp": "0.34.4",
+    "sharp": "0.35.0",
     "typescript": "5.9.3",
     "fast-glob": "3.3.3",
     "gray-matter": "4.0.3",
