@@ -24,6 +24,7 @@
 - [Flutter 3.35 发布啦，快来看有什么更新吧](Flutter-335.md)
 - [Flutter 3.38 发布啦，快来看有什么更新吧](Flutter-338.md)
 - [Flutter 3.44 发布啦，超级大版本更新！！！](Flutter344.md)
+- [Flutter 3.47 发布，快来看看有什么更新吧](Flutter-347.md)
 
 
 
@@ -48,3 +49,5 @@
 - [Dart 3.8 发布，快来看看有什么更新吧](Dart-380.md)
 - [Dart 3.10 发布，快来看看有什么更新吧](Dart-310.md)
 - [Dart   大更新，新增语法糖和各种能力，真的难得了](Dart%203.13-PrimaryConstructors.md)
+- [Dart 3.13 大更新，感觉比 Flutter 更带劲](Dart-313.md)
+- [Dart 3.13 的到底改了什么？为什么很重要？有什么坑？](Dart-313-PrimaryConstructors.md)
