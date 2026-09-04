@@ -7,7 +7,7 @@ hero:
   text: 完整开发实战详解
   tagline: Flutter / Dart 系列文章合集，覆盖入门、源码、实战、跨端
   image:
-    src: /logo.png
+    src: /logo.webp
     alt: GSY Flutter Book
   actions:
     - theme: brand

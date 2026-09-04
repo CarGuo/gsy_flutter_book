@@ -74,7 +74,11 @@ Kevin 他之所以提到上面三项技术，其目的主要是为了引出后�
 
   
 
-<!-- broken local image: C:\Users\Asher.Guo\Desktop\image-20250929091204245.png -->
+
+
+> 图片资源缺失：image-20250929091204245.png
+
+
 
 最后，Kevin Moore 总结：要想让Flutter成为像 Linux、Wasm 和 RISC-V 那样具有持久影响力的技术，同时在 AI 的浪潮中立于不败之地，唯一的答案就是社区中的每一个人都努力做到：
 

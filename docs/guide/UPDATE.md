@@ -27,6 +27,8 @@ title: "Flutter SDK 更新集锦"
 - [Flutter 3.32 发布啦，快来看有什么更新吧](/flutter-updates/Flutter-332)
 - [Flutter 3.35 发布啦，快来看有什么更新吧](/flutter-updates/Flutter-335)
 - [Flutter 3.38 发布啦，快来看有什么更新吧](/flutter-updates/Flutter-338)
+- [Flutter 3.44 发布啦，超级大版本更新！！！](/flutter-updates/Flutter344)
+- [Flutter 3.47 发布，快来看看有什么更新吧](/flutter-updates/Flutter-347)
 
 
 
@@ -50,4 +52,6 @@ title: "Flutter SDK 更新集锦"
 - [Dart 3.7 发布，快来看看有什么更新吧](/dart-updates/Dart-370)
 - [Dart 3.8 发布，快来看看有什么更新吧](/dart-updates/Dart-380)
 - [Dart 3.10 发布，快来看看有什么更新吧](/dart-updates/Dart-310)
-
+- [Dart   大更新，新增语法糖和各种能力，真的难得了](/dart-updates/Dart-203.13-PrimaryConstructors)
+- [Dart 3.13 大更新，感觉比 Flutter 更带劲](/dart-updates/Dart-313)
+- [Dart 3.13 的到底改了什么？为什么很重要？有什么坑？](/dart-updates/Dart-313-PrimaryConstructors)

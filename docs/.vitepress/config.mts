@@ -11,12 +11,12 @@ export default {
   ignoreDeadLinks: true,
 
   head: [
-    ['link', { rel: 'icon', href: '/home/wx/logo.png' }],
+    ['link', { rel: 'icon', type: 'image/png', href: '/home/wx/logo-icon.png' }],
     ['meta', { name: 'theme-color', content: '#3eaf7c' }]
   ],
 
   themeConfig: {
-    logo: '/logo.png',
+    logo: '/logo-icon.png',
     siteTitle: 'GSY Flutter Book',
 
     nav: [

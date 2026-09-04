@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "migrate": "node scripts/migrate.mjs",
+    "predev": "pnpm run migrate",
     "dev": "vitepress dev docs",
+    "prebuild": "pnpm run migrate",
     "build": "vitepress build docs && pnpm run search:index",
     "preview": "vitepress preview docs",
     "search:index": "pagefind --site docs/.vitepress/dist --output-subdir pagefind",
@@ -23,6 +25,7 @@
     "vue": "3.5.33",
     "pagefind": "1.5.2",
     "sass": "1.99.0",
+    "sharp": "0.34.4",
     "typescript": "5.9.3",
     "fast-glob": "3.3.3",
     "gray-matter": "4.0.3",

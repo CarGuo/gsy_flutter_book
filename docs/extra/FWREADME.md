@@ -423,3 +423,63 @@ title: "番外"
 * [Flutter  PC 多窗口最新进展，底层原生窗口句柄支持已合并](/extra/Flutter-PC-Multi-2)
 
 * [WasmGC 是什么？为什么它对 Dart 和 Kotlin 在 Web 领域很重要？](/extra/WasmGC-Dart-Koltin)
+
+* [Flutter 最好的 AI 自动化测试工具：Patrol](/extra/Flutter-Patrol)
+
+* [Flutter GenUI 0.9 和 A2UI 0.9 发布，全动动态 UI 支持，AI 在 App 里直出界面](/extra/a2ui_flutter_genui_complete)
+
+* [Flutter  3.44 发布前夕，官方宣布 SwiftPM 将完全取代 CocoaPods](/extra/Flutter-SPM-CocoaPods)
+
+* [终于，Flutter 修复  Android  中文字体异常，但是很草台，不知怎么吐槽](/extra/Flutter_Android_Font_Skia_Article)
+
+* [Flutter 多窗口最近进度，为什么 3.44  还不落地](/extra/Flutter-mw)
+
+* [经典，Flutter  iOS 又修复了一个构建问题，还是很抽象](/extra/Flutter-iOS-rt)
+
+* [实用性 Max ，新  Flutter  &  Dart Agent  Skills  深度解读](/extra/Flutter-26DartAgentSkills)
+
+* [Flutter material/cupertino 解耦最新进展，已经在做新样式了](/extra/Flutter-Material-Cupertino-Decoupling)
+
+* [新开源 Flutter 热更新？flutter_patcher 可以简单了解下](/extra/Flutter-Patcher)
+
+* [Flutter 开发怎么做 Agent ？从工程实战详细给你解读下](/extra/Flutter-Genkit-Agent)
+
+* [flutter_agent_lens 用 MCP 服务，将 Flutter DevTools 暴露给 AI](/extra/Flutter-Agent-Lens)
+
+* [Flutter 又为 AI 时代添砖加瓦：全新 ComponentLibrary 提议](/extra/Flutter-ComponentLibrary)
+
+* [由于 iOS 26 的键盘变化，Flutter 又要重构键盘区域逻辑](/extra/Flutter-iOS26-Keyboard-Rebuild)
+
+* [Flutter Patchwork，不用 Fork 改依赖包源码的第三方工具](/extra/Flutter-Patchwork)
+
+* [Flutter A2UI 深度解析，它是怎么提供动态生产力的，然后为什么 A2UI 不只是 Flutter](/extra/Flutter-A2UI-Client-Side-Functions)
+
+* [Flutter 多窗口支持类型和 API 介绍](/extra/Flutter-Multi-Window-API)
+
+* [Flutter  A2UI 的正确用法，怎么把 AI 和动态 UI 结合生产。](/extra/Flutter-A2UI-Production)
+
+* [聊个比较有意思的 Flutter Web 问题](/extra/Flutter-Web-Questions)
+
+* [Flutter 的另外一种形态？社区 DartNative 要来了。](/extra/DartNative)
+
+* [Flutter iOS Deep Link 为什么会突然失效：一系列难以言喻的问题](/extra/Flutter-iOS-Deep-Link)
+
+* [Flutter 3.47 首坑，analysis_options 问题连环回归](/extra/Flutter-347-analysis-options)
+
+* [Flutter 3D 渲染的全新选择和应用场景](/extra/Flutter-3D-Rendering)
+
+* [Fluter 共享内存多线程正在落地，IsolateGroupBound 来了](/extra/Flutter-IsolateGroupBound)
+
+* [AI 时代，一个优化 Flutter 的重复代码工具  Deslop](/extra/Flutter-Deslop)
+
+* [Flutter iOS 的深度优化 PR，搞笑的是贡献者被 Gemini 评审折磨](/extra/Flutter-iOS-Touch-Delay)
+
+* [Flutter Windows 开始支持 Impeller ，还修复了多窗口 bug](/extra/Flutter-Windows-Impeller)
+
+* [AI 时代，也许你的 Flutter 需要一套 Dartastic OpenTelemetry 监控](/extra/Flutter-Dartastic-OpenTelemetry)
+
+* [Firebase 如何让全球  Android  和  Flutter 开发者集体 Build Fail](/extra/Firebase-Build-Fail)
+
+* [Flutter  Starling : 用 Swift和 Flutter 写了一个 Linux 桌面系统，震惊我一整年](/extra/Flutter-Starling)
+
+* [社区版 Dart macros？一个可以解决 JSON 序列化的Fluter “宏编程”第三方包](/extra/Dart-dmx)

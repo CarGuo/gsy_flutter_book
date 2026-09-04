@@ -195,6 +195,14 @@ export const sidebar: DefaultTheme.Sidebar = [
       {
         "text": "Flutter 3.38 发布啦，快来看有什么更新吧",
         "link": "/flutter-updates/Flutter-338"
+      },
+      {
+        "text": "Flutter 3.44 发布啦，超级大版本更新！！！",
+        "link": "/flutter-updates/Flutter344"
+      },
+      {
+        "text": "Flutter 3.47 发布，快来看看有什么更新吧",
+        "link": "/flutter-updates/Flutter-347"
       }
     ]
   },
@@ -265,6 +273,18 @@ export const sidebar: DefaultTheme.Sidebar = [
       {
         "text": "Dart 3.10 发布，快来看看有什么更新吧",
         "link": "/dart-updates/Dart-310"
+      },
+      {
+        "text": "Dart   大更新，新增语法糖和各种能力，真的难得了",
+        "link": "/dart-updates/Dart-203.13-PrimaryConstructors"
+      },
+      {
+        "text": "Dart 3.13 大更新，感觉比 Flutter 更带劲",
+        "link": "/dart-updates/Dart-313"
+      },
+      {
+        "text": "Dart 3.13 的到底改了什么？为什么很重要？有什么坑？",
+        "link": "/dart-updates/Dart-313-PrimaryConstructors"
       }
     ]
   },
@@ -1099,6 +1119,126 @@ export const sidebar: DefaultTheme.Sidebar = [
       {
         "text": "WasmGC 是什么？为什么它对 Dart 和 Kotlin 在 Web 领域很重要？",
         "link": "/extra/WasmGC-Dart-Koltin"
+      },
+      {
+        "text": "Flutter 最好的 AI 自动化测试工具：Patrol",
+        "link": "/extra/Flutter-Patrol"
+      },
+      {
+        "text": "Flutter GenUI 0.9 和 A2UI 0.9 发布，全动动态 UI 支持，AI 在 App 里直出界面",
+        "link": "/extra/a2ui_flutter_genui_complete"
+      },
+      {
+        "text": "Flutter  3.44 发布前夕，官方宣布 SwiftPM 将完全取代 CocoaPods",
+        "link": "/extra/Flutter-SPM-CocoaPods"
+      },
+      {
+        "text": "终于，Flutter 修复  Android  中文字体异常，但是很草台，不知怎么吐槽",
+        "link": "/extra/Flutter_Android_Font_Skia_Article"
+      },
+      {
+        "text": "Flutter 多窗口最近进度，为什么 3.44  还不落地",
+        "link": "/extra/Flutter-mw"
+      },
+      {
+        "text": "经典，Flutter  iOS 又修复了一个构建问题，还是很抽象",
+        "link": "/extra/Flutter-iOS-rt"
+      },
+      {
+        "text": "实用性 Max ，新  Flutter  &  Dart Agent  Skills  深度解读",
+        "link": "/extra/Flutter-26DartAgentSkills"
+      },
+      {
+        "text": "Flutter material/cupertino 解耦最新进展，已经在做新样式了",
+        "link": "/extra/Flutter-Material-Cupertino-Decoupling"
+      },
+      {
+        "text": "新开源 Flutter 热更新？flutter_patcher 可以简单了解下",
+        "link": "/extra/Flutter-Patcher"
+      },
+      {
+        "text": "Flutter 开发怎么做 Agent ？从工程实战详细给你解读下",
+        "link": "/extra/Flutter-Genkit-Agent"
+      },
+      {
+        "text": "flutter_agent_lens 用 MCP 服务，将 Flutter DevTools 暴露给 AI",
+        "link": "/extra/Flutter-Agent-Lens"
+      },
+      {
+        "text": "Flutter 又为 AI 时代添砖加瓦：全新 ComponentLibrary 提议",
+        "link": "/extra/Flutter-ComponentLibrary"
+      },
+      {
+        "text": "由于 iOS 26 的键盘变化，Flutter 又要重构键盘区域逻辑",
+        "link": "/extra/Flutter-iOS26-Keyboard-Rebuild"
+      },
+      {
+        "text": "Flutter Patchwork，不用 Fork 改依赖包源码的第三方工具",
+        "link": "/extra/Flutter-Patchwork"
+      },
+      {
+        "text": "Flutter A2UI 深度解析，它是怎么提供动态生产力的，然后为什么 A2UI 不只是 Flutter",
+        "link": "/extra/Flutter-A2UI-Client-Side-Functions"
+      },
+      {
+        "text": "Flutter 多窗口支持类型和 API 介绍",
+        "link": "/extra/Flutter-Multi-Window-API"
+      },
+      {
+        "text": "Flutter  A2UI 的正确用法，怎么把 AI 和动态 UI 结合生产。",
+        "link": "/extra/Flutter-A2UI-Production"
+      },
+      {
+        "text": "聊个比较有意思的 Flutter Web 问题",
+        "link": "/extra/Flutter-Web-Questions"
+      },
+      {
+        "text": "Flutter 的另外一种形态？社区 DartNative 要来了。",
+        "link": "/extra/DartNative"
+      },
+      {
+        "text": "Flutter iOS Deep Link 为什么会突然失效：一系列难以言喻的问题",
+        "link": "/extra/Flutter-iOS-Deep-Link"
+      },
+      {
+        "text": "Flutter 3.47 首坑，analysis_options 问题连环回归",
+        "link": "/extra/Flutter-347-analysis-options"
+      },
+      {
+        "text": "Flutter 3D 渲染的全新选择和应用场景",
+        "link": "/extra/Flutter-3D-Rendering"
+      },
+      {
+        "text": "Fluter 共享内存多线程正在落地，IsolateGroupBound 来了",
+        "link": "/extra/Flutter-IsolateGroupBound"
+      },
+      {
+        "text": "AI 时代，一个优化 Flutter 的重复代码工具  Deslop",
+        "link": "/extra/Flutter-Deslop"
+      },
+      {
+        "text": "Flutter iOS 的深度优化 PR，搞笑的是贡献者被 Gemini 评审折磨",
+        "link": "/extra/Flutter-iOS-Touch-Delay"
+      },
+      {
+        "text": "Flutter Windows 开始支持 Impeller ，还修复了多窗口 bug",
+        "link": "/extra/Flutter-Windows-Impeller"
+      },
+      {
+        "text": "AI 时代，也许你的 Flutter 需要一套 Dartastic OpenTelemetry 监控",
+        "link": "/extra/Flutter-Dartastic-OpenTelemetry"
+      },
+      {
+        "text": "Firebase 如何让全球  Android  和  Flutter 开发者集体 Build Fail",
+        "link": "/extra/Firebase-Build-Fail"
+      },
+      {
+        "text": "Flutter  Starling : 用 Swift和 Flutter 写了一个 Linux 桌面系统，震惊我一整年",
+        "link": "/extra/Flutter-Starling"
+      },
+      {
+        "text": "社区版 Dart macros？一个可以解决 JSON 序列化的Fluter “宏编程”第三方包",
+        "link": "/extra/Dart-dmx"
       }
     ]
   },

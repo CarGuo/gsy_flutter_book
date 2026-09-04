@@ -67,7 +67,11 @@ Flutter Property Editor 可以和 Flutter inspector 结合使用，然后在这�
 
 最后，Flutter Property  Edit 还支持筛选：
 
-- 只需在筛选栏中输入筛选以仅显示和输入匹配的属性，比如  “main” 将筛选到 `mainAxisAlignment`、`mainAxisSize`：<!-- broken local image: C:\Users\Asher.Guo\AppData\Roaming\Typora\typora-user-images\image-20250521162158793.png -->
+- 只需在筛选栏中输入筛选以仅显示和输入匹配的属性，比如  “main” 将筛选到 `mainAxisAlignment`、`mainAxisSize`：
+
+> 图片资源缺失：image-20250521162158793.png
+
+
 - 你还可以仅显示 set 的属性，通过选打开选项：![](https://img.cdn.guoshuyu.cn/image-20250521162158793.png)
 - 最后支持正则表达式切换（`*` )：![](https://img.cdn.guoshuyu.cn/image-20250521162237492.png)
 
