@@ -65,7 +65,7 @@ Come on，下面主要通过对比，简单讲述下 Dart 的一些特性，主�
 
 - Dart 下 `??` 、`??=` 属于操作符，如: ` AA ?? "999" ` 表示如果 AA 为空，返回999；` AA ??= "999" ` 表示如果 AA 为空，给 AA 设置成 999。
 
-- Dart 方法可以设置 *参数默认值* 和 *指定名称* 。比如： ` getDetail(Sting userName, reposName, {branch = "master"}){} ` 方法，这里 branch 不设置的话，默认是 “master” 。*参数类型* 可以指定或者不指定。调用效果： `getRepositoryDetailDao(“aaa", "bbbb", branch: "dev");`
+- Dart 方法可以设置 *参数默认值* 和 *指定名称* 。比如： ` getDetail(String userName, reposName, {branch = "master"}){} ` 方法，这里 branch 不设置的话，默认是 “master” 。*参数类型* 可以指定或者不指定。调用效果： `getRepositoryDetailDao(“aaa", "bbbb", branch: "dev");`
 
 - Dart 不像 Java ，没有关键词 public 、private 等修饰符，` _ `下横向直接代表 private ，但是有 `@protected` 注解。
 
