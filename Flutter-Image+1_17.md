@@ -122,5 +122,5 @@ Flutter 中 `ImageCache` 缓存的是一个异步对象，缓存异步加载对�
 * Github ： https://github.com/CarGuo
 * **开源 Flutter 完整项目：https://github.com/CarGuo/GSYGithubAppFlutter**
 * **开源 Flutter 多案例学习型项目: https://github.com/CarGuo/GSYFlutterDemo**
-* **开源 Fluttre 实战电子书项目：https://github.com/CarGuo/GSYFlutterBook**
+* **开源 Flutter 实战电子书项目：https://github.com/CarGuo/GSYFlutterBook**
 * 开源 React Native 项目：https://github.com/CarGuo/GSYGithubApp
