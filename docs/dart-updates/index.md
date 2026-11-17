@@ -4,10 +4,11 @@ title: Dart 语言更新集锦
 
 # Dart 语言更新集锦
 
-完整追踪 Dart 2.12 → 3.10 每个版本的语言特性演进：空安全、Records、Patterns、扩展类型、JavaScript Interop、Macros、workspace、Digit separators、Null-Aware Elements、Primary Constructors 等。
+完整追踪 Dart 2.12 → 3.15 每个版本的语言特性演进：空安全、Records、Patterns、扩展类型、JavaScript Interop、Macros、workspace、Digit separators、Null-Aware Elements、Primary Constructors 等。
 
 ## Dart 3.x
 
+- [Dart 3.15 新特性：this 终于支持类型提升了](/dart-updates/Dart-315)
 - [Dart 3.10 发布，快来看看有什么更新吧](/dart-updates/Dart-310)
 - [Dart 3.8 发布，快来看看有什么更新吧](/dart-updates/Dart-380)
 - [Dart 3.7 发布，快来看看有什么更新吧](/dart-updates/Dart-370)

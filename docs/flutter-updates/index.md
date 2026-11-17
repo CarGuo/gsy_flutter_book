@@ -4,10 +4,11 @@ title: Flutter SDK 更新集锦
 
 # Flutter SDK 更新集锦
 
-跟随每一个 Flutter 大版本，从 1.12 到最新的 3.38，逐个版本解析新特性、坑点修复、性能优化与新能力首发实测。按版本号从新到旧排列，最新的版本在最前面。
+跟随每一个 Flutter 大版本，从 1.12 到最新的 3.47.8，逐个版本解析新特性、坑点修复、性能优化与新能力首发实测。按版本号从新到旧排列，最新的版本在最前面。
 
 ## Flutter 3.x
 
+- [Flutter 紧急发布 3.47.8 安全升级版本，建议都升级](/flutter-updates/Flutter-3478-Security)
 - [Flutter 3.38 发布啦，快来看有什么更新吧](/flutter-updates/Flutter-338)
 - [Flutter 3.35 发布啦，快来看有什么更新吧](/flutter-updates/Flutter-335)
 - [Flutter 3.32 发布啦，快来看有什么更新吧](/flutter-updates/Flutter-332)

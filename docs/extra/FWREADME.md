@@ -483,3 +483,51 @@ title: "番外"
 * [Flutter  Starling : 用 Swift和 Flutter 写了一个 Linux 桌面系统，震惊我一整年](/extra/Flutter-Starling)
 
 * [社区版 Dart macros？一个可以解决 JSON 序列化的Fluter “宏编程”第三方包](/extra/Dart-dmx)
+
+* [Flutter THLC 的 WebView 滚动终于从 70 FPS 提升到 120 FPS](/extra/Flutter-THLC-WebView)
+
+* [Flutter Native Interop 稳定了，Platform Channel 要退场了](/extra/Flutter-Native-Interop)
+
+* [Flitz ，一个把 Flutter 玩成热插拔 Preview 的有趣项目，不错的思路](/extra/Flutter-Flitz)
+
+* [Dart 4.0 要彻底移除 dart:mirrors，Augmentations 应该要来了](/extra/Dart-Remove-Mirrors)
+
+* [Genkit Dart 1.0 发布，Flutter 原生的 AI Agent 终于完整了](/extra/Genkit-Dart-1)
+
+* [Flutter Golden Tests：给 AI Agent 的 UI 测试系统](/extra/Flutter-Golden-Tests)
+
+* [Flutter 状态管理基准测评，一个很有趣的观点](/extra/Flutter-State-Management-Benchmark)
+
+* [Flutter GPU 最近这一串问题，其实也是 Flutter 另一个投入在看不到的地方](/extra/Flutter-GPU-Issues)
+
+* [Flutter 官方表示：AI 时代代码越来越容易写，为什么还要一套代码库？](/extra/Flutter-AI-Codebase)
+
+* [感人，Flutter 居然有了一个超实用提案，期待落地](/extra/Dart-Conditional-Part)
+
+* [Flutter 3.50.0 Release 的第一个崩溃，修好了，还没 hotfix](/extra/Flutter-350-Release-Crash)
+
+* [Flutter GSoC 2026 提案进度解读，补上 DevTools、FFI 和原生平台的关键缺口](/extra/Flutter-GSoC-2026)
+
+* [Flutter + EmbeddingGemma 2，谷歌发布完全端侧的 AI Edge Foresight](/extra/Flutter-EmbeddingGemma-2)
+
+* [Flutter Android 改动：APK 不再允许通过 Intent 动态修改 Engine 参数](/extra/Flutter-Android-Intent-Engine)
+
+* [Flutter 可以更直接地调用原生 API 了，Dart Direct Native Interop](/extra/Dart-Direct-Native-Interop)
+
+* [Flutter Android 性能修复：8 个大核的手机，Raster 居然只跑在 2 个核上？](/extra/Flutter-Android-CPU-Affinity)
+
+* [Flutter 下 AOT 一个你怎么都想不出来的 Bug ，JIT 正常的计算，在 AOT 居然算错了](/extra/Dart-AOT-Min-Max)
+
+* [Flutter 大小核优化又被回滚，然后又合并？](/extra/Flutter-Raster-Thread-Rollback)
+
+* [Flutter 的文字为什么比 SwiftUI 更细？问题主要在 Skia 的 256 项查找表里](/extra/Flutter-Skia-Font-Weight)
+
+* [Flutter Analyzer 系列坑推进，必看，AI 时代这玩意最吃你内存](/extra/Flutter-Analyzer-Performance)
+
+* [Dart Skills CLI 1.0 ：AI 时代的 Dart 交付支持](/extra/Dart-Skills-CLI)
+
+* [Flutter Impeller Vulkan 内存持续上涨，问题没想到是文字阴影](/extra/Flutter-Impeller-Vulkan-Memory)
+
+* [Flutter 开始支持 Jetpack Compose Platform View](/extra/Flutter-Compose-PlatformView)
+
+* [Flutter 多窗口重要优化合并，多窗口性能和实用性大幅提升](/extra/Flutter-Multi-Window-Optimize)

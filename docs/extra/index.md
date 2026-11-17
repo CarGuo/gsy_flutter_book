@@ -25,6 +25,8 @@ title: 番外篇汇总
 - [WasmGC 是什么？为什么它对 Dart 和 Kotlin 在 Web 领域很重要？](/extra/WasmGC-Dart-Koltin)
 - [Flutter Web 正式官宣弃用 HTML renderer，Canvas 路线成为唯一](/extra/Flutter-web1)
 - [Flutter PC 多窗口最新进展，底层原生窗口句柄支持已合并](/extra/Flutter-PC-Multi-2)
+- [Flutter 多窗口重要优化合并，多窗口性能和实用性大幅提升](/extra/Flutter-Multi-Window-Optimize)
+- [Flutter THLC 的 WebView 滚动终于从 70 FPS 提升到 120 FPS](/extra/Flutter-THLC-WebView)
 
 ## 🤖 AI / GenUI / 工具链
 
@@ -35,6 +37,12 @@ title: 番外篇汇总
 - [让 AI 用 Flutter 实现了猗窝座的破坏杀·罗针动画](/extra/Flutter-AI7)
 - [用 AI 做了几个超炫酷的 Flutter 动画，并转成 Web 代码应用在个人主页](/extra/Flutter-AI-3)
 - [Flutter 正在计划提供 Packaged AI Assets 的支持](/extra/Flutter-Packaged-AI-Assets)
+- [Genkit Dart 1.0 发布，Flutter 原生的 AI Agent 终于完整了](/extra/Genkit-Dart-1)
+- [Flutter Golden Tests：给 AI Agent 的 UI 测试系统](/extra/Flutter-Golden-Tests)
+- [Dart Skills CLI 1.0 ：AI 时代的 Dart 交付支持](/extra/Dart-Skills-CLI)
+- [Flutter + EmbeddingGemma 2，谷歌发布完全端侧的 AI Edge Foresight](/extra/Flutter-EmbeddingGemma-2)
+- [Flitz ，一个把 Flutter 玩成热插拔 Preview 的有趣项目，不错的思路](/extra/Flutter-Flitz)
+- [Flutter 官方表示：AI 时代代码越来越容易写，为什么还要一套代码库？](/extra/Flutter-AI-Codebase)
 
 ## ⚡ 性能 / 渲染 / 引擎
 
@@ -48,6 +56,12 @@ title: 番外篇汇总
 - [Compose Multiplatform Skia 对比 Flutter Impeller](/extra/si)
 - [聊聊 Flutter & Dart 里的内存泄漏和优化](/extra/Flutter-DL)
 - [着色器预热？为什么 Flutter 需要？为什么原生 App 不需要？](/extra/Flutter-N47)
+- [Flutter GPU 最近这一串问题，其实也是 Flutter 另一个投入在看不到的地方](/extra/Flutter-GPU-Issues)
+- [Flutter Impeller Vulkan 内存持续上涨，问题没想到是文字阴影](/extra/Flutter-Impeller-Vulkan-Memory)
+- [Flutter 的文字为什么比 SwiftUI 更细？问题主要在 Skia 的 256 项查找表里](/extra/Flutter-Skia-Font-Weight)
+- [Flutter Android 性能修复：8 个大核的手机，Raster 居然只跑在 2 个核上？](/extra/Flutter-Android-CPU-Affinity)
+- [Flutter 大小核优化又被回滚，然后又合并？](/extra/Flutter-Raster-Thread-Rollback)
+- [Flutter Analyzer 系列坑推进，必看，AI 时代这玩意最吃你内存](/extra/Flutter-Analyzer-Performance)
 
 ## 🧩 状态管理 / 架构
 
@@ -56,6 +70,7 @@ title: 番外篇汇总
 - [Flutter Riverpod 全面深入解析，为什么官方推荐它？](/extra/Flutter-Riverpod)
 - [Flutter 新一代状态管理框架 signals，它究竟具备什么魔法和优势](/extra/Flutter-signals)
 - [2021 年的 Flutter 状态管理：如何选择？](/extra/Flutter-StateM)
+- [Flutter 状态管理基准测评，一个很有趣的观点](/extra/Flutter-State-Management-Benchmark)
 
 ## 🚧 混合开发 / PlatformView
 
@@ -64,6 +79,9 @@ title: 番外篇汇总
 - [Flutter 3.0 之 PlatformView：告别 VirtualDisplay，拥抱 TextureLayer](/extra/Flutter-P3)
 - [Flutter 深入探索混合开发的技术演进](/extra/Flutter-DWW)
 - [Fluttter 混合开发下 HybridComposition 和 VirtualDisplay 的实现与未来演进](/extra/Flutter-HV)
+- [Flutter 开始支持 Jetpack Compose Platform View](/extra/Flutter-Compose-PlatformView)
+- [Flutter Android 改动：APK 不再允许通过 Intent 动态修改 Engine 参数](/extra/Flutter-Android-Intent-Engine)
+- [Flutter Native Interop 稳定了，Platform Channel 要退场了](/extra/Flutter-Native-Interop)
 
 ## 📌 路线图与大会回顾
 
@@ -77,6 +95,7 @@ title: 番外篇汇总
 - [回顾 Flutter Flight Plans，关于 Flutter 的现状和官方热门问题解答](/extra/Flutter-FlightPlans)
 - [Flutter CTO 2024 报告出炉解读](/extra/FCTO)
 - [Flutter 之 ftcon24usa 大会，创始人分享 Flutter 十年发展史](/extra/ftcon24usa)
+- [Flutter GSoC 2026 提案进度解读，补上 DevTools、FFI 和原生平台的关键缺口](/extra/Flutter-GSoC-2026)
 
 ## 🧠 Dart 语言深读
 
@@ -88,6 +107,11 @@ title: 番外篇汇总
 - [Flutter 在 Dart 3.8 开始支持 Null-Aware Elements 语法](/extra/Flutter-null-type)
 - [Flutter 开始支持 'dot-shorthands' 语法糖，实现自动类型推断](/extra/Flutter-fsts)
 - [Dart 官方再解释为什么放弃了宏编程](/extra/Flutter-build_runner)
+- [Flutter 可以更直接地调用原生 API 了，Dart Direct Native Interop](/extra/Dart-Direct-Native-Interop)
+- [Flutter 下 AOT 一个你怎么都想不出来的 Bug ，JIT 正常的计算，在 AOT 居然算错了](/extra/Dart-AOT-Min-Max)
+- [感人，Flutter 居然有了一个超实用提案，期待落地](/extra/Dart-Conditional-Part)
+- [Dart 4.0 要彻底移除 dart:mirrors，Augmentations 应该要来了](/extra/Dart-Remove-Mirrors)
+- [Flutter 3.50.0 Release 的第一个崩溃，修好了，还没 hotfix](/extra/Flutter-350-Release-Crash)
 
 ## 💡 小技巧合集
 

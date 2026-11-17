@@ -25,6 +25,7 @@
 - [Flutter 3.38 发布啦，快来看有什么更新吧](Flutter-338.md)
 - [Flutter 3.44 发布啦，超级大版本更新！！！](Flutter344.md)
 - [Flutter 3.47 发布，快来看看有什么更新吧](Flutter-347.md)
+- [Flutter 紧急发布 3.47.8 安全升级版本，建议都升级](Flutter-3478-Security.md)
 
 
 
@@ -51,3 +52,4 @@
 - [Dart   大更新，新增语法糖和各种能力，真的难得了](Dart%203.13-PrimaryConstructors.md)
 - [Dart 3.13 大更新，感觉比 Flutter 更带劲](Dart-313.md)
 - [Dart 3.13 的到底改了什么？为什么很重要？有什么坑？](Dart-313-PrimaryConstructors.md)
+- [Dart 3.15 新特性：this 终于支持类型提升了](Dart-315.md)

@@ -203,6 +203,10 @@ export const sidebar: DefaultTheme.Sidebar = [
       {
         "text": "Flutter 3.47 发布，快来看看有什么更新吧",
         "link": "/flutter-updates/Flutter-347"
+      },
+      {
+        "text": "Flutter 紧急发布 3.47.8 安全升级版本，建议都升级",
+        "link": "/flutter-updates/Flutter-3478-Security"
       }
     ]
   },
@@ -285,6 +289,10 @@ export const sidebar: DefaultTheme.Sidebar = [
       {
         "text": "Dart 3.13 的到底改了什么？为什么很重要？有什么坑？",
         "link": "/dart-updates/Dart-313-PrimaryConstructors"
+      },
+      {
+        "text": "Dart 3.15 新特性：this 终于支持类型提升了",
+        "link": "/dart-updates/Dart-315"
       }
     ]
   },
@@ -1239,6 +1247,102 @@ export const sidebar: DefaultTheme.Sidebar = [
       {
         "text": "社区版 Dart macros？一个可以解决 JSON 序列化的Fluter “宏编程”第三方包",
         "link": "/extra/Dart-dmx"
+      },
+      {
+        "text": "Flutter THLC 的 WebView 滚动终于从 70 FPS 提升到 120 FPS",
+        "link": "/extra/Flutter-THLC-WebView"
+      },
+      {
+        "text": "Flutter Native Interop 稳定了，Platform Channel 要退场了",
+        "link": "/extra/Flutter-Native-Interop"
+      },
+      {
+        "text": "Flitz ，一个把 Flutter 玩成热插拔 Preview 的有趣项目，不错的思路",
+        "link": "/extra/Flutter-Flitz"
+      },
+      {
+        "text": "Dart 4.0 要彻底移除 dart:mirrors，Augmentations 应该要来了",
+        "link": "/extra/Dart-Remove-Mirrors"
+      },
+      {
+        "text": "Genkit Dart 1.0 发布，Flutter 原生的 AI Agent 终于完整了",
+        "link": "/extra/Genkit-Dart-1"
+      },
+      {
+        "text": "Flutter Golden Tests：给 AI Agent 的 UI 测试系统",
+        "link": "/extra/Flutter-Golden-Tests"
+      },
+      {
+        "text": "Flutter 状态管理基准测评，一个很有趣的观点",
+        "link": "/extra/Flutter-State-Management-Benchmark"
+      },
+      {
+        "text": "Flutter GPU 最近这一串问题，其实也是 Flutter 另一个投入在看不到的地方",
+        "link": "/extra/Flutter-GPU-Issues"
+      },
+      {
+        "text": "Flutter 官方表示：AI 时代代码越来越容易写，为什么还要一套代码库？",
+        "link": "/extra/Flutter-AI-Codebase"
+      },
+      {
+        "text": "感人，Flutter 居然有了一个超实用提案，期待落地",
+        "link": "/extra/Dart-Conditional-Part"
+      },
+      {
+        "text": "Flutter 3.50.0 Release 的第一个崩溃，修好了，还没 hotfix",
+        "link": "/extra/Flutter-350-Release-Crash"
+      },
+      {
+        "text": "Flutter GSoC 2026 提案进度解读，补上 DevTools、FFI 和原生平台的关键缺口",
+        "link": "/extra/Flutter-GSoC-2026"
+      },
+      {
+        "text": "Flutter + EmbeddingGemma 2，谷歌发布完全端侧的 AI Edge Foresight",
+        "link": "/extra/Flutter-EmbeddingGemma-2"
+      },
+      {
+        "text": "Flutter Android 改动：APK 不再允许通过 Intent 动态修改 Engine 参数",
+        "link": "/extra/Flutter-Android-Intent-Engine"
+      },
+      {
+        "text": "Flutter 可以更直接地调用原生 API 了，Dart Direct Native Interop",
+        "link": "/extra/Dart-Direct-Native-Interop"
+      },
+      {
+        "text": "Flutter Android 性能修复：8 个大核的手机，Raster 居然只跑在 2 个核上？",
+        "link": "/extra/Flutter-Android-CPU-Affinity"
+      },
+      {
+        "text": "Flutter 下 AOT 一个你怎么都想不出来的 Bug ，JIT 正常的计算，在 AOT 居然算错了",
+        "link": "/extra/Dart-AOT-Min-Max"
+      },
+      {
+        "text": "Flutter 大小核优化又被回滚，然后又合并？",
+        "link": "/extra/Flutter-Raster-Thread-Rollback"
+      },
+      {
+        "text": "Flutter 的文字为什么比 SwiftUI 更细？问题主要在 Skia 的 256 项查找表里",
+        "link": "/extra/Flutter-Skia-Font-Weight"
+      },
+      {
+        "text": "Flutter Analyzer 系列坑推进，必看，AI 时代这玩意最吃你内存",
+        "link": "/extra/Flutter-Analyzer-Performance"
+      },
+      {
+        "text": "Dart Skills CLI 1.0 ：AI 时代的 Dart 交付支持",
+        "link": "/extra/Dart-Skills-CLI"
+      },
+      {
+        "text": "Flutter Impeller Vulkan 内存持续上涨，问题没想到是文字阴影",
+        "link": "/extra/Flutter-Impeller-Vulkan-Memory"
+      },
+      {
+        "text": "Flutter 开始支持 Jetpack Compose Platform View",
+        "link": "/extra/Flutter-Compose-PlatformView"
+      },
+      {
+        "text": "Flutter 多窗口重要优化合并，多窗口性能和实用性大幅提升",
+        "link": "/extra/Flutter-Multi-Window-Optimize"
       }
     ]
   },
