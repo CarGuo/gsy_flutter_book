@@ -200,7 +200,7 @@ Flutter 过去的一年无疑是火热的，所以暴露的问题也指数级出
 * Github ： https://github.com/CarGuo
 * **开源 Flutter 完整项目：https://github.com/CarGuo/GSYGithubAppFlutter**
 * **开源 Flutter 多案例学习型项目: https://github.com/CarGuo/GSYFlutterDemo**
-* **开源 Fluttre 实战电子书项目：https://github.com/CarGuo/GSYFlutterBook**
+* **开源 Flutter 实战电子书项目：https://github.com/CarGuo/GSYFlutterBook**
 * 开源 React Native 项目：https://github.com/CarGuo/GSYGithubApp
 
 ![](http://img.cdn.guoshuyu.cn/20191224_Flutter-Interact-2019/image21)
