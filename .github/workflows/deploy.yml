@@ -70,9 +70,13 @@ jobs:
       - name: Setup SSH
         env:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
-          DEPLOY_PORT: ${{ secrets.DEPLOY_SSH_PORT || 22 }}
+          # v2.5.8: keep the migrated deployment endpoint explicit and canonical.
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT }}
           DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
         run: |
+          : "${DEPLOY_HOST:?DEPLOY_HOST is required}"
+          : "${DEPLOY_PORT:?DEPLOY_PORT is required}"
+          : "${DEPLOY_SSH_KEY:?DEPLOY_SSH_KEY is required}"
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
           # Normalize key: strip CR, drop trailing whitespace, ensure single trailing newline
@@ -85,7 +89,10 @@ jobs:
             echo "::error::DEPLOY_SSH_KEY is not a valid OpenSSH private key."
             exit 1
           fi
-          ssh-keyscan -H -p "${DEPLOY_PORT}" "${DEPLOY_HOST}" >> ~/.ssh/known_hosts 2>/dev/null
+          if ! ssh-keyscan -T 15 -H -p "${DEPLOY_PORT}" "${DEPLOY_HOST}" >> ~/.ssh/known_hosts; then
+            echo "::error::Unable to obtain the deployment host key. Verify DEPLOY_HOST and DEPLOY_PORT."
+            exit 1
+          fi
           chmod 600 ~/.ssh/known_hosts
 
       - name: Deploy via rsync
@@ -93,8 +100,12 @@ jobs:
           DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
-          DEPLOY_PORT: ${{ secrets.DEPLOY_SSH_PORT || 22 }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT }}
         run: |
+          : "${DEPLOY_USER:?DEPLOY_USER is required}"
+          : "${DEPLOY_HOST:?DEPLOY_HOST is required}"
+          : "${DEPLOY_PATH:?DEPLOY_PATH is required}"
+          : "${DEPLOY_PORT:?DEPLOY_PORT is required}"
           set +e
           for attempt in 1 2 3 4 5; do
             echo "=== rsync attempt $attempt ==="
